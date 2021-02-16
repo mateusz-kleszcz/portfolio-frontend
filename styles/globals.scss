@@ -1,0 +1,41 @@
+@import 'variables';
+
+html, body {
+  font-family: 'Lato';
+  background-color: $mainWhiteColor;
+  margin: 0;
+  .container {
+    width: 100%;
+  }
+}
+
+.main-navbar {
+  background-color: $mainBlackColor;
+  width: 100%;
+  margin: 0;
+  height: $mainNavHeightDesktop;
+  .logo {
+    color: $mainWhiteColor;
+    h1 {
+      margin: 0;
+    }
+  }
+  .links {
+    box-sizing: border-box;
+    a {
+      color: $mainWhiteColor;
+      text-decoration: none;
+      padding: 10px;
+      font-size: $mainFontSize;
+    }
+  }
+}
+
+.main-footer {
+  background-color: $mainBlackColor;
+  color: $mainWhiteColor;
+  width: 100%;
+  height: $footerHeightDesktop;
+  padding: 20px;
+  box-sizing: border-box;
+}
