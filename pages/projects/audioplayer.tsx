@@ -13,7 +13,7 @@ interface AudioPlayerProps {
 }
 
 export const getStaticProps = async () => {
-    const res = await fetch('http://localhost:8080/api/player/albums')
+    const res = await fetch('https://portfolio-kleszcz.herokuapp.com/api/player/albums')
     const json = await res.json()
 
     return {
