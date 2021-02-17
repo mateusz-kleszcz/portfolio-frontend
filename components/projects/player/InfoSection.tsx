@@ -28,7 +28,6 @@ const InfoSection = (): ReactElement => {
                         />
                     ) : null
                 }
-
             </div>
             <div className={styles.albumDetails}>
                 <div>{albumName}</div>

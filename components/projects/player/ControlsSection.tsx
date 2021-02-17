@@ -11,7 +11,6 @@ import DurationBar from './DurationBar';
 import { toggleShuffle } from '../../../actions/playerActions/toggleShuffle';
 import { toggleRandom } from '../../../actions/playerActions/toggleRandom';
 import { changeSong } from '../../../actions/playerActions/changeSong';
-import { trackDuration } from '../../../actions/playerActions/trackDuration';
 
 const previousImageSrc = '/previous.png'
 const playImageSrc = '/play.png'
@@ -22,7 +21,7 @@ const ControlsSection = (): ReactElement => {
 
     const dispatch = useDispatch()
 
-    const { selectedAlbumSongs, selectedSongTitle, selectedSongDuration, isPlaying, isShuffle, isRepeat } = useSelector((state: AppState) => state.playerReducer)
+    const { selectedAlbumSongs, selectedSongTitle, isPlaying, isShuffle, isRepeat } = useSelector((state: AppState) => state.playerReducer)
 
     // pause or play song
     const handlePlayButtonClick = () => {

@@ -16,7 +16,7 @@ const AlbumLabel = ({ _id, artist, albumName, year, duration }: Album): ReactEle
         <div className={styles.albumLabel} onClick={handleAlbumClick}>
             <div className={styles.albumCover}>
                 <img
-                    src={`http://localhost:8080/api/player/cover/${albumName}.jpg`}
+                    src={`https://portfolio-kleszcz.herokuapp.com/api/player/cover/${albumName}.jpg`}
                     className={styles.coverImage}
                 />
             </div>

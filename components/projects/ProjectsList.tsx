@@ -16,7 +16,7 @@ const ProjectsList = () => {
             name: 'Screenshot Generator',
             description: 'Lorem ipsum',
             imageURL: '/eee.png',
-            link: 'screenshot-generator',
+            link: 'screenshotgenerator',
         }
     ]
 
