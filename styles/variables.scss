@@ -1,8 +1,13 @@
 // background and font color
 $mainBlackColor: #1d1f21;
 $mainWhiteColor: #edf1f8;
-$mainFontSize: 18px;
+$bigFontSize: 1em;
+$mainFontSize: 0.9em;
+$smallFontSize: 0.8em;
 
 // sizes of layout's elements
-$mainNavHeightDesktop: 86px;
-$footerHeightDesktop: 94px;
+$mainNavHeightDesktop: 74px;
+$footerHeightDesktop: 85px;
+
+// custom parts
+$durationBarHeight: 12px;

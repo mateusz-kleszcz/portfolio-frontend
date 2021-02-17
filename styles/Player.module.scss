@@ -12,8 +12,8 @@
         overflow-y: scroll;
         .albumHeader {
             width: 100%;
-            padding: 20px 15px;
-            font-size: 18px;
+            padding: 15px 12px;
+            font-size: $smallFontSize;
             box-sizing: border-box;
             color: $mainWhiteColor;
             display: flex;
@@ -78,8 +78,8 @@
 
 .albumLabel {
     width: 100%;
-    padding: 20px 15px;
-    font-size: 18px;
+    padding: 15px 12px;
+    font-size: $mainFontSize;
     box-sizing: border-box;
     color: $mainWhiteColor;
     display: flex;
@@ -91,8 +91,8 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     color: $mainWhiteColor;
-    padding: 15px 15px;
-    font-size: 18px;
+    padding: 12px 12px;
+    font-size: $mainFontSize;
     box-sizing: border-box;
     .songId {
         grid-column: 1/2;
@@ -121,12 +121,18 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        div {
+            cursor: pointer;
+        }
     }
     .addToPlaylist {
         grid-column: 12/13;
         display: flex;
         justify-content: center;
         align-items: center;
+        div {
+            cursor: pointer;
+        }
     }
     &:hover {
         background-color: black;
@@ -160,6 +166,7 @@
             flex-direction: column;
             justify-content: space-around;
             align-items: center;
+            font-size: $mainFontSize;
         }
     }
     .controlsSection {
@@ -173,12 +180,12 @@
             justify-content: space-around;
             align-items: center;
             .shuffleButton, .repeatButton{
-                font-size: 25px;
+                font-size: 20px;
                 cursor: pointer;
             }
             .controlButton {
-                width: 40px;
-                height: 40px;
+                width: 30px;
+                height: 30px;
                 cursor: pointer;
             }
         }
@@ -186,19 +193,20 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-            height: 16px;
+            height: $durationBarHeight;
+            font-size: $smallFontSize;
             width: 100%;
             .durationBar {
                 display: flex;
                 width: 80%;
-                height: 12px;
+                height: $durationBarHeight;
                 background-color: #BDBDBD;
-                border-radius: 8px;
+                border-radius: $durationBarHeight / 2;
                 cursor: pointer;
                 .progress {
                     background-color: black;
-                    height: 12px;
-                    border-radius: 8px;
+                    height: $durationBarHeight;
+                    border-radius: $durationBarHeight / 2;
                 }
             }
         }
@@ -210,19 +218,19 @@
         align-items: center;
         width: 100%;
         .volumeIcon {
-            width: 40px;
-            height: 32px;
-            font-size: 26px;
+            width: 32px;
+            height: 26px;
+            font-size: 22px;
         }
         .volumeInputDiv{
-            height: 32px;
+            height: 28px;
             display: flex;
             justify-content: center;
             align-items: center;
             .volumeInput {
                 -webkit-appearance: none;
                 width: 100%;
-                height: 6px;
+                height: 5px;
                 border-radius: 8px;  
                 background: #d3d3d3;
                 outline: none;
@@ -233,23 +241,23 @@
             .volumeInput::-webkit-slider-thumb {
                 -webkit-appearance: none;
                 appearance: none;
-                width: 16px;
-                height: 16px;
+                width: 14px;
+                height: 14px;
                 border-radius: 50%; 
                 background: #181818;
                 cursor: pointer;
             }
             .volumeInput::-moz-range-thumb {
-                width: 16px;
-                height: 16px;
+                width: 14px;
+                height: 14px;
                 border-radius: 50%;
-                background: 181818;
+                background: #181818;
                 cursor: pointer;
             }
         }   
         .volume {
             padding-left: 12px;
-            font-size: 16px;
+            font-size: $mainFontSize;
             height: 32px;
             display: flex;
             justify-content: center;
