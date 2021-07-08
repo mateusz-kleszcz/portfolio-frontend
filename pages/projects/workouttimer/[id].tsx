@@ -8,7 +8,7 @@ interface TimerProps {
 }
 
 export const getStaticPaths = async () => {
-    const res = await fetch(`${process.env.API_ADDRESS}api/workout`)
+    const res = await fetch(`${process.env.API_ADDRESS}/api/workout`)
     const data = await res.json()
 
     const { workouts } = data
