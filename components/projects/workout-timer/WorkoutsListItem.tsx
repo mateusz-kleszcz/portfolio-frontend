@@ -21,11 +21,13 @@ const WorkoutsListItem = ({ _id, name, numberOfSets, numberOfExercises }: Workou
             <div>{numberOfExercises}</div>
             <div>
                 <Link href={`/projects/workouttimer/${_id}`} key={_id}>
-                    <Image
-                        src={playImgSrc}
-                        width={25}
-                        height={25}
-                    />
+                    <a>
+                        <Image
+                            src={playImgSrc}
+                            width={25}
+                            height={25}
+                        />
+                    </a>
                 </Link>
             </div>
         </div>

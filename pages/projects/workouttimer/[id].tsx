@@ -26,7 +26,7 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_ADDRESS}/${context.params?.id}`)
+    const res = await fetch(`${process.env.API_ADDRESS}/api/workout/${context.params?.id}`)
     console.log(res)
     const data = await res.json()
 

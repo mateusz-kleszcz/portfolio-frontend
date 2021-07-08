@@ -1,6 +1,9 @@
-import { AppActions, CHANGE_ALBUM_FAIL, CHANGE_ALBUM_SUCCESS } from "../../types/actions"
+import { AppActions, CHANGE_ALBUM_FAIL, CHANGE_ALBUM_SUCCESS } from "types/actions"
 import { Dispatch } from "redux"
-import { Song } from "../../types/Player"
+import { Song } from "types/Player"
+import getConfig from 'next/config'
+
+const { publicRuntimeConfig } = getConfig()
 
 const albumChangeSuccess = (selectedAlbumSongs: Song[], selectedAlbumName: string): AppActions => ({
     type: CHANGE_ALBUM_SUCCESS,
@@ -15,7 +18,7 @@ const albumChangeFail = (err: string): AppActions => ({
 
 export const changeAlbum = (_id: string, albumName: string) => async (dispatch: Dispatch<AppActions>) => {
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_ADDRESS}/api/player/albums`, {
+        const res = await fetch(`${publicRuntimeConfig.API_ADDRESS}/api/player/albums`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
