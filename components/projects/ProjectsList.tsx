@@ -17,6 +17,13 @@ const ProjectsList = () => {
             description: 'Lorem ipsum',
             imageURL: '/eee.png',
             link: 'screenshotgenerator',
+        },
+        {
+            id: 3,
+            name: 'Workout Timer',
+            description: 'Lorem ipsum',
+            imageURL: '/eee.png',
+            link: 'workouttimer',
         }
     ]
 

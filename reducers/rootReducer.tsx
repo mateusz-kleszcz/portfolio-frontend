@@ -1,6 +1,10 @@
 import { combineReducers } from 'redux'
 import playerReducer from './playerReducer'
+import screenshotGeneratorReducer from './screenshotGeneratorReducer'
+import workoutTimerReducer from './workoutTimerReducer'
 
 export default combineReducers({
-    playerReducer
+    playerReducer,
+    screenshotGeneratorReducer,
+    workoutTimerReducer
 })
