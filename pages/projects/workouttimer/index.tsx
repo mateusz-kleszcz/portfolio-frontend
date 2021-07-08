@@ -19,7 +19,7 @@ export const getStaticProps = async () => {
 
 const workouttimer = ({ workouts }: WorkoutTimerProps) => {
     return (
-        <div className={styles.wortkoutTimer}>
+        <div className={styles.workoutTimer}>
             <CreateTimer />
             <WorkoutsList workouts={workouts} />
         </div>

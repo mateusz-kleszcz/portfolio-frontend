@@ -50,7 +50,8 @@ const CreateTimer = () => {
     }
 
     return (
-        <div className={styles.createTimer}>
+        <div className={styles.timerCreator}>
+            <h1>Create your own workout!</h1>
             <label htmlFor="name">Name of training</label>
             <input
                 type="text"

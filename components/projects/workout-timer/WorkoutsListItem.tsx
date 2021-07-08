@@ -2,6 +2,7 @@ import React from 'react';
 import { ReactElement } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import styles from '../../../styles/WorkoutTimer.module.scss'
 
 interface WorkoutsListItemProps {
     _id: string,
@@ -14,7 +15,7 @@ const playImgSrc = '/play.png'
 
 const WorkoutsListItem = ({ _id, name, numberOfSets, numberOfExercises }: WorkoutsListItemProps): ReactElement => {
     return (
-        <div>
+        <div className={styles.workoutsListItem}>
             <div>{name}</div>
             <div>{numberOfSets}</div>
             <div>{numberOfExercises}</div>

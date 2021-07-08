@@ -10,7 +10,6 @@ const Timer = ({ name, numberOfSets, numberOfExercises, lengthOfExercise, length
 
     const [isPaused, setIsPaused] = useState(true)
     const [isExercise, setIsExercise] = useState(true)
-    const [isSet, setIsSet] = useState(true)
     const [setsLeft, setSetsLeft] = useState(numberOfSets)
     const [exercisesLeft, setExercisesLeft] = useState(numberOfExercises)
     const [timeLeft, setTimeLeft] = useState(lengthOfExercise)
@@ -53,9 +52,7 @@ const Timer = ({ name, numberOfSets, numberOfExercises, lengthOfExercise, length
             <div>number of exercise: {exercisesLeft}</div>
             <div>time to end of exercise: {timeLeft}</div>
             <div>{isExercise ? 'EXERCISE' : 'REST'}</div>
-            <div
-                onClick={handleToggleTimer}
-            >
+            <div onClick={handleToggleTimer}>
                 <Image
                     src={isPaused ? playImgSrc : pauseImgSrc}
                     width={25}

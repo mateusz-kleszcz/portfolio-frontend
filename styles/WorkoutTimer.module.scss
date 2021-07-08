@@ -1,5 +1,17 @@
 @import 'variables';
+@import 'mixins';
 
 .workoutTimer {
-    width: 100%;
+    @include flexContainterRow;
+    .timerCreator {
+        @include flexContainterColumn;
+    }
+    .workoutsList {
+        padding: 20px;
+        @include flexContainterColumn;
+        .workoutsListItem {
+            @include flexContainterRow;
+            justify-content: space-around;
+        }
+    }
 }
