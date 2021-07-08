@@ -1,16 +1,16 @@
-import styles from '../../../styles/Player.module.scss';
+import styles from '@styles/Player.module.scss';
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppState } from '../../../store';
-import { pauseSong } from '../../../actions/playerActions/pauseSong';
-import { playSong } from '../../../actions/playerActions/playSong';
+import { AppState } from 'store';
+import { pauseSong } from '@actions/playerActions/pauseSong';
+import { playSong } from '@actions/playerActions/playSong';
 import { ReactElement } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRandom, faRedo } from '@fortawesome/free-solid-svg-icons';
 import DurationBar from './DurationBar';
-import { toggleShuffle } from '../../../actions/playerActions/toggleShuffle';
-import { toggleRandom } from '../../../actions/playerActions/toggleRandom';
-import { changeSong } from '../../../actions/playerActions/changeSong';
+import { toggleShuffle } from '@actions/playerActions/toggleShuffle';
+import { toggleRandom } from '@actions/playerActions/toggleRandom';
+import { changeSong } from '@actions/playerActions/changeSong';
 
 const previousImageSrc = '/previous.png'
 const playImageSrc = '/play.png'

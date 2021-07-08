@@ -1,8 +1,8 @@
 import { ReactElement, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeSong } from "../../../actions/playerActions/changeSong";
-import { trackDuration } from "../../../actions/playerActions/trackDuration";
-import { AppState } from "../../../store";
+import { changeSong } from "@actions/playerActions/changeSong";
+import { trackDuration } from "@actions/playerActions/trackDuration";
+import { AppState } from "store";
 
 const AudioElement = (): ReactElement => {
 

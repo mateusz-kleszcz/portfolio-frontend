@@ -1,7 +1,7 @@
 import { ReactElement, useEffect, useState } from 'react';
-import styles from '../../../styles/Player.module.scss';
+import styles from '@styles/Player.module.scss';
 import { useSelector } from 'react-redux';
-import { AppState } from '../../../store';
+import { AppState } from 'store';
 
 const InfoSection = (): ReactElement => {
 

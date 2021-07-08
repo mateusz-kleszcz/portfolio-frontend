@@ -1,5 +1,5 @@
-import { CHANGE_ALBUM_FAIL, CHANGE_ALBUM_SUCCESS, CHANGE_SONG, CHANGE_VOLUME, PAUSE_SONG, PlayerActionsTypes, PLAY_SONG, TOGGLE_RANDOM, TOGGLE_SHUFFLE, TRACK_DURATION } from "../types/actions"
-import { Player } from "../types/Player"
+import { CHANGE_ALBUM_FAIL, CHANGE_ALBUM_SUCCESS, CHANGE_SONG, CHANGE_VOLUME, PAUSE_SONG, PlayerActionsTypes, PLAY_SONG, TOGGLE_RANDOM, TOGGLE_SHUFFLE, TRACK_DURATION } from "types/actions"
+import { Player } from "types/Player"
 
 const initState: Player = {
     selectedAlbumName: '',

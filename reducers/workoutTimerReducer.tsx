@@ -1,5 +1,5 @@
-import { ADD_WORKOUT_FAIL, ADD_WORKOUT_SUCCESS, WorkoutTimerActionsTypes } from "../types/actions"
-import { Workout } from "../types/WorkoutTimer"
+import { ADD_WORKOUT_FAIL, ADD_WORKOUT_SUCCESS, WorkoutTimerActionsTypes } from "types/actions"
+import { Workout } from "types/WorkoutTimer"
 
 const initState: Workout = {
     name: '',

@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { pauseSong } from '../../../actions/playerActions/pauseSong';
-import { playSong } from '../../../actions/playerActions/playSong';
-import { trackDuration } from '../../../actions/playerActions/trackDuration';
-import { AppState } from '../../../store';
-import styles from '../../../styles/Player.module.scss'
+import { pauseSong } from '@actions/playerActions/pauseSong';
+import { playSong } from '@actions/playerActions/playSong';
+import { trackDuration } from '@actions/playerActions/trackDuration';
+import { AppState } from 'store';
+import styles from '@styles/Player.module.scss'
 
 interface SongLabelProps {
     songId: number,

@@ -1,6 +1,6 @@
 import { Dispatch } from "hoist-non-react-statics/node_modules/@types/react"
-import { Workout, WorkoutWithID } from "../../types/WorkoutTimer"
-import { ADD_WORKOUT_FAIL, ADD_WORKOUT_SUCCESS, AppActions } from "../../types/actions"
+import { Workout, WorkoutWithID } from "types/WorkoutTimer"
+import { ADD_WORKOUT_FAIL, ADD_WORKOUT_SUCCESS, AppActions } from "types/actions"
 
 const addWorkoutSuccess = (workout: WorkoutWithID): AppActions => ({
     type: ADD_WORKOUT_SUCCESS,

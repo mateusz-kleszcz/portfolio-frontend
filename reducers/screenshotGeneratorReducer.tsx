@@ -1,5 +1,5 @@
-import { CHANGE_BACKGROUND_COLOR, CHANGE_PHONE, CHANGE_SIZE, CHANGE_TEXT, ScreenshotGeneratorActionsTypes } from "../types/actions"
-import { Screenshot } from "../types/ScreenshotGenerator"
+import { CHANGE_BACKGROUND_COLOR, CHANGE_PHONE, CHANGE_SIZE, CHANGE_TEXT, ScreenshotGeneratorActionsTypes } from "types/actions"
+import { Screenshot } from "types/ScreenshotGenerator"
 
 const initState: Screenshot = {
     backgroundColor: '#008080',

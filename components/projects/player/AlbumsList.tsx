@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
-import styles from '../../../styles/Player.module.scss'
-import { Album } from '../../../types/Player';
+import styles from '@styles/Player.module.scss'
+import { Album } from 'types/Player';
 import AlbumLabel from './AlbumLabel';
 
 interface AlbumListProps {

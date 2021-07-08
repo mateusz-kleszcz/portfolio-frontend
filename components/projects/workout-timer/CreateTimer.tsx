@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import styles from '../../../styles/WorkoutTimer.module.scss'
-import { Workout } from '../../../types/WorkoutTimer';
-import { addWorkout } from '../../../actions/workoutActions/addWorkout';
+import styles from '@styles/WorkoutTimer.module.scss'
+import { Workout } from 'types/WorkoutTimer';
+import { addWorkout } from '@actions/workoutActions/addWorkout';
 
 const CreateTimer = () => {
 

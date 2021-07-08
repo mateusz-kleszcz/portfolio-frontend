@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
-import { WorkoutWithID } from '../../../types/WorkoutTimer';
+import { WorkoutWithID } from 'types/WorkoutTimer';
 import WorkoutsListItem from './WorkoutsListItem';
-import styles from '../../../styles/WorkoutTimer.module.scss'
+import styles from '@styles/WorkoutTimer.module.scss'
 
 interface WorkoutsListProps {
     workouts: WorkoutWithID[]

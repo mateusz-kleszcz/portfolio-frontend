@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { changeAlbum } from '../../actions/playerActions/changeAlbum';
-import AlbumsList from '../../components/projects/player/AlbumsList';
-import AudioElement from '../../components/projects/player/AudioElement';
-import SongInfo from '../../components/projects/player/SongInfo';
-import SongsList from '../../components/projects/player/SongsList';
-import styles from '../../styles/Player.module.scss'
-import { Album } from '../../types/Player';
+import { changeAlbum } from '@actions/playerActions/changeAlbum';
+import AlbumsList from '@components/projects/player/AlbumsList';
+import AudioElement from '@components/projects/player/AudioElement';
+import SongInfo from '@components/projects/player/SongInfo';
+import SongsList from '@components/projects/player/SongsList';
+import styles from '@styles/Player.module.scss'
+import { Album } from 'types/Player';
 
 interface AudioPlayerProps {
     albums: Album[],

@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
-import { AppState } from '../../../store';
-import styles from '../../../styles/Player.module.scss'
+import { AppState } from 'store';
+import styles from '@styles/Player.module.scss'
 import SongLabel from './SongLabel';
 
 

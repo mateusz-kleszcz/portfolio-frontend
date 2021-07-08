@@ -1,7 +1,7 @@
-import { Album } from '../../../types/Player';
-import styles from '../../../styles/Player.module.scss'
+import { Album } from 'types/Player';
+import styles from '@styles/Player.module.scss'
 import { useDispatch } from 'react-redux';
-import { changeAlbum } from '../../../actions/playerActions/changeAlbum';
+import { changeAlbum } from '@actions/playerActions/changeAlbum';
 import { ReactElement } from 'react';
 
 const AlbumLabel = ({ _id, artist, albumName, year, duration }: Album): ReactElement => {

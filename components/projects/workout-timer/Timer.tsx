@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image'
 import { useState, useEffect } from 'react';
-import { Workout } from '../../../types/WorkoutTimer';
+import { Workout } from 'types/WorkoutTimer';
 
 const playImgSrc = '/play.png'
 const pauseImgSrc = '/pause.png'

@@ -1,5 +1,5 @@
-import style from '../../styles/Projects.module.scss'
-import { Project } from '../../types/Project';
+import style from '@styles/Projects.module.scss'
+import { Project } from 'types/Project';
 import Image from 'next/image'
 import Link from 'next/link';
 

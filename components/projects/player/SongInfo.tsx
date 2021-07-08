@@ -1,4 +1,4 @@
-import styles from '../../../styles/Player.module.scss';
+import styles from '@styles/Player.module.scss';
 import VolumeControl from './VolumeControl';
 import ControlsSection from './ControlsSection';
 import { ReactElement } from 'react';

@@ -1,7 +1,7 @@
-import CreateTimer from '../../../components/projects/workout-timer/CreateTimer';
-import WorkoutsList from '../../../components/projects/workout-timer/WorkoutsList';
-import styles from '../../../styles/WorkoutTimer.module.scss'
-import { WorkoutWithID } from '../../../types/WorkoutTimer';
+import CreateTimer from '@components/projects/workout-timer/CreateTimer';
+import WorkoutsList from '@components/projects/workout-timer/WorkoutsList';
+import styles from '@styles/WorkoutTimer.module.scss'
+import { WorkoutWithID } from 'types/WorkoutTimer';
 
 interface WorkoutTimerProps {
     workouts: WorkoutWithID[]

@@ -2,9 +2,9 @@ import { faVolumeDown, faVolumeOff, faVolumeUp } from '@fortawesome/free-solid-s
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ReactElement, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeVolume } from '../../../actions/playerActions/changeVolume';
-import { AppState } from '../../../store';
-import styles from '../../../styles/Player.module.scss';
+import { changeVolume } from '@actions/playerActions/changeVolume';
+import { AppState } from 'store';
+import styles from '@styles/Player.module.scss';
 
 const VolumeControl = (): ReactElement => {
 

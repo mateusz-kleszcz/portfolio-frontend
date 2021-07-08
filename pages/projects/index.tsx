@@ -1,5 +1,5 @@
 import React from 'react';
-import ProjectsList from '../../components/projects/ProjectsList';
+import ProjectsList from '@components/projects/ProjectsList';
 
 const index = () => {
     return (

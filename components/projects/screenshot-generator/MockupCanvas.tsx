@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { AppState } from "../../../store";
+import { AppState } from "store";
 
 const imageSrc = '/Plik_036.jpeg'
 

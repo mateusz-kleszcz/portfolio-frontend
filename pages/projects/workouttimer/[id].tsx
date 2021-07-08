@@ -1,8 +1,7 @@
 import { GetStaticPropsContext } from 'next';
-import { ParsedUrlQuery } from 'querystring';
-import Timer from '../../../components/projects/workout-timer/Timer';
-import styles from '../../../styles/WorkoutTimer.module.scss'
-import { WorkoutWithID } from '../../../types/WorkoutTimer';
+import Timer from '@components/projects/workout-timer/Timer';
+import styles from '@styles/WorkoutTimer.module.scss'
+import { WorkoutWithID } from 'types/WorkoutTimer';
 
 interface TimerProps {
     workout: WorkoutWithID
