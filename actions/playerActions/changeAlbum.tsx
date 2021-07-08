@@ -15,7 +15,7 @@ const albumChangeFail = (err: string): AppActions => ({
 
 export const changeAlbum = (_id: string, albumName: string) => async (dispatch: Dispatch<AppActions>) => {
     try {
-        const res = await fetch('https://portfolio-kleszcz.herokuapp.com/api/player/albums', {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_ADDRESS}/api/player/albums`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

@@ -14,7 +14,7 @@ const addWorkoutFail = (errorMessage: string): AppActions => ({
 
 export const addWorkout = (workout: Workout) => async (dispatch: Dispatch<AppActions>) => {
     try {
-        const res = await fetch('http://localhost:8080/api/workout', {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_ADDRESS}api/workout`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
