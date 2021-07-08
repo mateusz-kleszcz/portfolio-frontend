@@ -1,6 +1,6 @@
-import { AppActions, CHANGE_ALBUM_FAIL, CHANGE_ALBUM_SUCCESS } from "types/actions"
+import { AppActions, CHANGE_ALBUM_FAIL, CHANGE_ALBUM_SUCCESS } from "../../types/actions"
 import { Dispatch } from "redux"
-import { Song } from "types/Player"
+import { Song } from "../../types/Player"
 
 const albumChangeSuccess = (selectedAlbumSongs: Song[], selectedAlbumName: string): AppActions => ({
     type: CHANGE_ALBUM_SUCCESS,

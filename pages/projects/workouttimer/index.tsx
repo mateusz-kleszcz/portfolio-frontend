@@ -8,7 +8,7 @@ interface WorkoutTimerProps {
 }
 
 export const getStaticProps = async () => {
-    const res = await fetch('http://localhost:8080/api/workout')
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_ADDRESS}/api/workout`)
     const json = await res.json()
     return {
         props: {
