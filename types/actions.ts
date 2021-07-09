@@ -91,6 +91,8 @@ export type ScreenshotGeneratorActionsTypes = ChangeBackgroundColor | ChangeText
 export const LOAD_INITIAL_WORKOUTS = 'LOAD_INITIAL_WORKOUTS'
 export const ADD_WORKOUT_SUCCESS = 'ADD_WORKOUT_SUCCESS'
 export const ADD_WORKOUT_FAIL = 'ADD_WORKOUT_FAIL'
+export const DELETE_WORKOUT_SUCCESS = 'DELETE_WORKOUT_SUCCESS'
+export const DELETE_WORKOUT_FAIL = 'DELETE_WORKOUT_FAIL'
 
 export interface LoadInitialWorkouts {
     type: typeof LOAD_INITIAL_WORKOUTS,
@@ -107,6 +109,16 @@ export interface AddWorkoutFail {
     errorMessage: string,
 }
 
-export type WorkoutTimerActionsTypes = LoadInitialWorkouts | AddWorkoutSuccess | AddWorkoutFail
+export interface DeleteWorkoutSuccess {
+    type: typeof DELETE_WORKOUT_SUCCESS,
+    id: string,
+}
+
+export interface DeleteWorkoutFail {
+    type: typeof DELETE_WORKOUT_FAIL,
+    errorMessage: string,
+}
+
+export type WorkoutTimerActionsTypes = LoadInitialWorkouts | AddWorkoutSuccess | AddWorkoutFail | DeleteWorkoutSuccess | DeleteWorkoutFail
 
 export type AppActions = PlayerActionsTypes | ScreenshotGeneratorActionsTypes | WorkoutTimerActionsTypes
