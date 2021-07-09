@@ -1,19 +1,22 @@
-import { ADD_WORKOUT_FAIL, ADD_WORKOUT_SUCCESS, WorkoutTimerActionsTypes } from "types/actions"
-import { Workout } from "types/WorkoutTimer"
+import { ADD_WORKOUT_FAIL, ADD_WORKOUT_SUCCESS, LOAD_INITIAL_WORKOUTS, WorkoutTimerActionsTypes } from "types/actions"
+import { WorkoutTimer } from "types/WorkoutTimer"
 
-const initState: Workout = {
-    name: '',
-    numberOfSets: 3,
-    numberOfExercises: 4,
-    lengthOfExercise: 30,
-    lengthOfRest: 10,
+const initState: WorkoutTimer = {
+    workouts: [],
+    errorMessage: ''
 }
 
-const workoutTimerReducer = (state = initState, actions: WorkoutTimerActionsTypes): Workout => {
+const workoutTimerReducer = (state = initState, actions: WorkoutTimerActionsTypes): WorkoutTimer => {
     switch (actions.type) {
+        case LOAD_INITIAL_WORKOUTS:
+            return {
+                ...state,
+                workouts: actions.workouts,
+            }
         case ADD_WORKOUT_SUCCESS:
             return {
                 ...state,
+                workouts: [...state.workouts, actions.workout]
             }
         case ADD_WORKOUT_FAIL:
             return {

@@ -1,13 +1,12 @@
 import React, { ReactElement } from 'react';
-import { WorkoutWithID } from 'types/WorkoutTimer';
 import WorkoutsListItem from './WorkoutsListItem';
 import styles from '@styles/WorkoutTimer.module.scss'
+import { useSelector } from 'react-redux';
+import { AppState } from 'store';
 
-interface WorkoutsListProps {
-    workouts: WorkoutWithID[]
-}
+const WorkoutsList = (): ReactElement => {
 
-const WorkoutsList = ({ workouts }: WorkoutsListProps): ReactElement => {
+    const { workouts } = useSelector((state: AppState) => state.workoutTimerReducer)
 
     const allWorkouts = workouts.map(workout => <WorkoutsListItem {...workout} key={workout._id} />)
 

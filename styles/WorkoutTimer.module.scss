@@ -5,13 +5,40 @@
     @include flexContainterRow;
     .timerCreator {
         @include flexContainterColumn;
+        label {
+            font-size: 20px;
+            padding: 8px;
+        }
+        input[type=text] {
+            width: 80%;
+            border-radius: 4px;
+            padding: 12px 20px;
+            border: 1px solid gray;
+        }
+        input:focus {
+            outline: none;
+        }
+        div {
+            @include flexContainterRow;
+            input[type=range] {
+                width: 60%;
+                margin-right: 20px;
+            }
+            input[type=number] {
+                border-radius: 4px;
+                padding: 8px 12px;
+                border: 1px solid gray;
+                margin-right: 20px;
+            }
+        }
     }
     .workoutsList {
         padding: 20px;
         @include flexContainterColumn;
         .workoutsListItem {
-            @include flexContainterRow;
-            justify-content: space-around;
+            display: grid;
+            width: 100%;
+            grid-template-columns: repeat(6, 1fr);
         }
     }
 }

@@ -14,3 +14,8 @@ export interface WorkoutWithID {
     lengthOfExercise: number,
     lengthOfRest: number,
 }
+
+export interface WorkoutTimer {
+    workouts: WorkoutWithID[],
+    errorMessage: string,
+}

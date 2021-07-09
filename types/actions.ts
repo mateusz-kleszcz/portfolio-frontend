@@ -1,5 +1,5 @@
 import { Song } from "./Player"
-import { Workout } from "./WorkoutTimer"
+import { Workout, WorkoutWithID } from "./WorkoutTimer"
 
 export const CHANGE_ALBUM_SUCCESS = 'CHANGE_ALBUM_SUCCESS'
 export const CHANGE_ALBUM_FAIL = 'CHANGE_ALBUM_FAIL'
@@ -88,14 +88,18 @@ export interface ChangeSize {
 
 export type ScreenshotGeneratorActionsTypes = ChangeBackgroundColor | ChangeText | ChangePhone | ChangeSize
 
+export const LOAD_INITIAL_WORKOUTS = 'LOAD_INITIAL_WORKOUTS'
 export const ADD_WORKOUT_SUCCESS = 'ADD_WORKOUT_SUCCESS'
 export const ADD_WORKOUT_FAIL = 'ADD_WORKOUT_FAIL'
-export const GET_WORKOUTS_SUCCESS = 'GET_WORKOUTS_SUCCESS'
-export const GET_WORKOUTS_FAIL = 'GET_WORKOUTS_FAIL'
+
+export interface LoadInitialWorkouts {
+    type: typeof LOAD_INITIAL_WORKOUTS,
+    workouts: WorkoutWithID[]
+}
 
 export interface AddWorkoutSuccess {
     type: typeof ADD_WORKOUT_SUCCESS,
-    workout: Workout,
+    workout: WorkoutWithID,
 }
 
 export interface AddWorkoutFail {
@@ -103,16 +107,6 @@ export interface AddWorkoutFail {
     errorMessage: string,
 }
 
-export interface GetWorkoutsSuccess {
-    type: typeof GET_WORKOUTS_SUCCESS,
-    workouts: Workout[],
-}
-
-export interface GetWorkoutsFail {
-    type: typeof GET_WORKOUTS_FAIL,
-    errorMessage: string
-}
-
-export type WorkoutTimerActionsTypes = AddWorkoutSuccess | AddWorkoutFail | GetWorkoutsSuccess | GetWorkoutsFail
+export type WorkoutTimerActionsTypes = LoadInitialWorkouts | AddWorkoutSuccess | AddWorkoutFail
 
 export type AppActions = PlayerActionsTypes | ScreenshotGeneratorActionsTypes | WorkoutTimerActionsTypes

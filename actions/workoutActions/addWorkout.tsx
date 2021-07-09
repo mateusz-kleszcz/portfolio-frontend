@@ -26,7 +26,7 @@ export const addWorkout = (workout: Workout) => async (dispatch: Dispatch<AppAct
             body: JSON.stringify({ workout })
         })
         const json = await res.json()
-        dispatch(addWorkoutSuccess(json.workout))
+        dispatch(addWorkoutSuccess(json))
     } catch (err) {
         dispatch(addWorkoutFail(err))
     }
