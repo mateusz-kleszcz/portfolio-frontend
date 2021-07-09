@@ -2,11 +2,17 @@ import React from 'react';
 import Image from 'next/image'
 import { useState, useEffect } from 'react';
 import { Workout } from 'types/WorkoutTimer';
+import { useRef } from 'react';
 
 const playImgSrc = '/play.png'
 const pauseImgSrc = '/pause.png'
+const shortBeepAudioSrc = '/beep-short.mp3'
+const longBeepAudioSrc = '/beep-long.mp3'
 
 const Timer = ({ name, numberOfSets, numberOfExercises, lengthOfExercise, lengthOfRest }: Workout) => {
+
+    const shortBeepRef = useRef<HTMLAudioElement>(null)
+    const longBeepRef = useRef<HTMLAudioElement>(null)
 
     const [isPaused, setIsPaused] = useState(true)
     const [isExercise, setIsExercise] = useState(true)
@@ -18,8 +24,14 @@ const Timer = ({ name, numberOfSets, numberOfExercises, lengthOfExercise, length
         if (!isPaused) {
             const countDown = setInterval(() => {
                 if (timeLeft > 0) {
+                    if (timeLeft < 4) {
+                        if (shortBeepRef.current !== null)
+                            shortBeepRef.current.play()
+                    }
                     setTimeLeft(timeLeft - 1)
                 } else {
+                    if (longBeepRef.current !== null)
+                        longBeepRef.current.play()
                     if (isExercise) {
                         if (exercisesLeft > 0) {
                             setExercisesLeft(exercisesLeft - 1)
@@ -59,6 +71,8 @@ const Timer = ({ name, numberOfSets, numberOfExercises, lengthOfExercise, length
                     height={25}
                 />
             </div>
+            <audio src={shortBeepAudioSrc} ref={shortBeepRef}></audio>
+            <audio src={longBeepAudioSrc} ref={longBeepRef}></audio>
         </div>
     );
 };
