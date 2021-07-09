@@ -13,8 +13,15 @@ const WorkoutsList = (): ReactElement => {
     return (
         <div className={styles.workoutsList}>
             <h1 className={styles.workoutListHeader}>Your workouts!</h1>
+            <div className={styles.workoutsListItem}>
+                <div className={styles.workoutName}>Name</div>
+                <div className={styles.workoutIntervals}>Number of intervals</div>
+                <div className={styles.workoutExercises}>Number of exercises</div>
+                <div className={styles.workoutPlay}>Play</div>
+                <div className={styles.workoutDelete}>Delete</div>
+            </div>
             {allWorkouts}
-        </div>
+        </div >
     );
 };
 

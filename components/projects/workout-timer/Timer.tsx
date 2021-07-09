@@ -9,14 +9,14 @@ const pauseImgSrc = '/pause.png'
 const shortBeepAudioSrc = '/beep-short.mp3'
 const longBeepAudioSrc = '/beep-long.mp3'
 
-const Timer = ({ name, numberOfSets, numberOfExercises, lengthOfExercise, lengthOfRest }: Workout) => {
+const Timer = ({ name, numberOfIntervals, numberOfExercises, lengthOfExercise, lengthOfRestExercise, lengthOfRestInterval }: Workout) => {
 
     const shortBeepRef = useRef<HTMLAudioElement>(null)
     const longBeepRef = useRef<HTMLAudioElement>(null)
 
     const [isPaused, setIsPaused] = useState(true)
     const [isExercise, setIsExercise] = useState(true)
-    const [setsLeft, setSetsLeft] = useState(numberOfSets)
+    const [intervalsLeft, setIntervalsLeft] = useState(numberOfIntervals)
     const [exercisesLeft, setExercisesLeft] = useState(numberOfExercises)
     const [timeLeft, setTimeLeft] = useState(lengthOfExercise)
 
@@ -35,12 +35,12 @@ const Timer = ({ name, numberOfSets, numberOfExercises, lengthOfExercise, length
                     if (isExercise) {
                         if (exercisesLeft > 0) {
                             setExercisesLeft(exercisesLeft - 1)
-                            setTimeLeft(lengthOfRest)
+                            setTimeLeft(lengthOfRestExercise)
                         } else {
-                            if (setsLeft > 0) {
-                                setSetsLeft(setsLeft - 1)
+                            if (intervalsLeft > 0) {
+                                setIntervalsLeft(intervalsLeft - 1)
                                 setExercisesLeft(numberOfExercises)
-                                setTimeLeft(10)
+                                setTimeLeft(lengthOfRestInterval)
                             } else {
                                 clearInterval(countDown)
                             }
@@ -60,7 +60,7 @@ const Timer = ({ name, numberOfSets, numberOfExercises, lengthOfExercise, length
     return (
         <div>
             <h1>{name}</h1>
-            <div>sets left: {setsLeft}</div>
+            <div>sets left: {intervalsLeft}</div>
             <div>number of exercise: {exercisesLeft}</div>
             <div>time to end of exercise: {timeLeft}</div>
             <div>{isExercise ? 'EXERCISE' : 'REST'}</div>

@@ -1,18 +1,20 @@
 export interface Workout {
     name: string,
-    numberOfSets: number,
+    numberOfIntervals: number,
     numberOfExercises: number,
     lengthOfExercise: number,
-    lengthOfRest: number,
+    lengthOfRestExercise: number,
+    lengthOfRestInterval: number,
 }
 
 export interface WorkoutWithID {
     _id: string,
     name: string,
-    numberOfSets: number,
+    numberOfIntervals: number,
     numberOfExercises: number,
     lengthOfExercise: number,
-    lengthOfRest: number,
+    lengthOfRestExercise: number,
+    lengthOfRestInterval: number,
 }
 
 export interface WorkoutTimer {

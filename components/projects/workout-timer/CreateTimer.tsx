@@ -7,10 +7,11 @@ import { addWorkout } from '@actions/workoutActions/addWorkout';
 const CreateTimer = () => {
 
     const [name, setName] = useState<string>('')
-    const [numberOfSets, setNumberOfSets] = useState<number>(3)
+    const [numberOfIntervals, setNumberOfIntervals] = useState<number>(3)
     const [numberOfExercises, setNumberOfExercises] = useState<number>(3)
     const [lengthOfExercise, setLengthOfExercise] = useState<number>(30)
-    const [lengthOfRest, setLengthOfRest] = useState<number>(10)
+    const [lengthOfRestExercise, setLengthOfRestExercise] = useState<number>(10)
+    const [lengthOfRestInterval, setLengthOfRestInterval] = useState<number>(60)
 
     const dispatch = useDispatch()
 
@@ -18,9 +19,9 @@ const CreateTimer = () => {
         setName(e.target.value)
     }
 
-    const handleNumberOfSetsChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const handleNumberOfIntervalsChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const number: number = parseInt(e.target.value)
-        setNumberOfSets(number)
+        setNumberOfIntervals(number)
     }
 
     const handleNumberOfExercisesChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -33,18 +34,24 @@ const CreateTimer = () => {
         setLengthOfExercise(length)
     }
 
-    const handleLengthOfRestChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const handleLengthOfRestExerciseChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const length = parseInt(e.target.value)
-        setLengthOfRest(length)
+        setLengthOfRestExercise(length)
+    }
+
+    const handleLengthOfRestIntervalChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+        const length = parseInt(e.target.value)
+        setLengthOfRestInterval(length)
     }
 
     const handleAddTraining = (e: React.MouseEvent<HTMLButtonElement>): void => {
         const workout: Workout = {
             name,
-            numberOfSets,
+            numberOfIntervals,
             numberOfExercises,
             lengthOfExercise,
-            lengthOfRest
+            lengthOfRestExercise,
+            lengthOfRestInterval,
         }
         dispatch(addWorkout(workout))
     }
@@ -62,21 +69,21 @@ const CreateTimer = () => {
                 onChange={handleNameChange}
             />
             <br />
-            <label htmlFor="numberOfSets">Number of sets</label>
+            <label htmlFor="numberOfIntervals">Number of interval</label>
             <div>
                 <input
                     type="range"
-                    name="numberOfSets"
+                    name="numberOfIntervals"
                     min={1}
                     max={10}
-                    id="numberOfSets"
-                    value={numberOfSets}
-                    onChange={handleNumberOfSetsChange}
+                    id="numberOfIntervals"
+                    value={numberOfIntervals}
+                    onChange={handleNumberOfIntervalsChange}
                 />
-                {numberOfSets}
+                {numberOfIntervals}
             </div>
             <br />
-            <label htmlFor="numberOfExercises">Number of exercises in sets</label>
+            <label htmlFor="numberOfExercises">Number of exercises in interval</label>
             <div>
                 <input
                     type="range"
@@ -104,18 +111,32 @@ const CreateTimer = () => {
                 {`${lengthOfExercise}s`}
             </div>
             <br />
-            <label htmlFor="lengthOfRest">Length of rest after exercise</label>
+            <label htmlFor="lengthOfRestExercise">Length of rest after exercise</label>
             <div>
                 <input
                     type="number"
-                    name="lengthOfRest"
-                    min={0}
+                    name="lengthOfRestExercise"
+                    min={5}
                     max={30}
-                    id="lengthOfRest"
-                    value={lengthOfRest}
-                    onChange={handleLengthOfRestChange}
+                    id="lengthOfRestExercise"
+                    value={lengthOfRestExercise}
+                    onChange={handleLengthOfRestExerciseChange}
                 />
-                {`${lengthOfRest}s`}
+                {`${lengthOfRestExercise}s`}
+            </div>
+            <br />
+            <label htmlFor="lengthOfRestInterval">Length of rest after interval</label>
+            <div>
+                <input
+                    type="number"
+                    name="lengthOfRestInterval"
+                    min={10}
+                    max={90}
+                    id="lengthOfRestInterval"
+                    value={lengthOfRestInterval}
+                    onChange={handleLengthOfRestIntervalChange}
+                />
+                {`${lengthOfRestInterval}s`}
             </div>
             <br />
             <button onClick={handleAddTraining}>Add training</button>

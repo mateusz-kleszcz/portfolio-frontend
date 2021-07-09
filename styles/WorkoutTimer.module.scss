@@ -4,10 +4,11 @@
 .workoutTimer {
     @include flexContainterRow;
     .timerCreator {
+        padding: 20px;
         @include flexContainterColumn;
         label {
             font-size: 20px;
-            padding: 8px;
+            padding: 6px;
         }
         input[type=text] {
             width: 80%;
@@ -33,12 +34,16 @@
         }
     }
     .workoutsList {
-        padding: 20px;
         @include flexContainterColumn;
-        .workoutsListItem {
+        padding: 20px;
+        align-self: flex-start;
+            .workoutsListItem {
             display: grid;
             width: 100%;
             grid-template-columns: repeat(6, 1fr);
+            .workoutName {
+                grid-column: 1 / 3;
+            }
         }
     }
 }

@@ -9,14 +9,14 @@ import { deleteWorkout } from '@actions/workoutActions/deleteWorkout';
 interface WorkoutsListItemProps {
     _id: string,
     name: string,
-    numberOfSets: number,
+    numberOfIntervals: number,
     numberOfExercises: number,
 }
 
 const playImgSrc = '/play.png'
 const trashImageSrc = '/trash.png'
 
-const WorkoutsListItem = ({ _id, name, numberOfSets, numberOfExercises }: WorkoutsListItemProps): ReactElement => {
+const WorkoutsListItem = ({ _id, name, numberOfIntervals, numberOfExercises }: WorkoutsListItemProps): ReactElement => {
 
     const dispatch = useDispatch()
 
@@ -24,10 +24,10 @@ const WorkoutsListItem = ({ _id, name, numberOfSets, numberOfExercises }: Workou
 
     return (
         <div className={styles.workoutsListItem}>
-            <div>{name}</div>
-            <div>{numberOfSets}</div>
-            <div>{numberOfExercises}</div>
-            <div>
+            <div className={styles.workoutName}>{name}</div>
+            <div className={styles.workoutSets}>{numberOfIntervals}</div>
+            <div className={styles.workoutExercises}>{numberOfExercises}</div>
+            <div className={styles.workoutPlay}>
                 <Link href={`/projects/workouttimer/${_id}`} key={_id}>
                     <a>
                         <Image
@@ -38,7 +38,7 @@ const WorkoutsListItem = ({ _id, name, numberOfSets, numberOfExercises }: Workou
                     </a>
                 </Link>
             </div>
-            <div onClick={handleDeleteWorkout}>
+            <div className={styles.workoutDelete} onClick={handleDeleteWorkout}>
                 <Image
                     src={trashImageSrc}
                     width={25}
