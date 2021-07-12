@@ -66,6 +66,7 @@ const CreateTimer = () => {
                 id="name"
                 value={name}
                 placeholder='Your name...'
+                required
                 onChange={handleNameChange}
             />
             <br />
@@ -139,7 +140,7 @@ const CreateTimer = () => {
                 {`${lengthOfRestInterval}s`}
             </div>
             <br />
-            <button onClick={handleAddTraining}>Add training</button>
+            <button className={styles.addTrainingButton} onClick={handleAddTraining}>Add training</button>
             <br />
         </div>
     );

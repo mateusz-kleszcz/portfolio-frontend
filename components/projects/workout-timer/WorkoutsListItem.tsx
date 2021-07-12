@@ -13,7 +13,7 @@ interface WorkoutsListItemProps {
     numberOfExercises: number,
 }
 
-const playImgSrc = '/play.png'
+const playImgSrc = '/play-black.png'
 const trashImageSrc = '/trash.png'
 
 const WorkoutsListItem = ({ _id, name, numberOfIntervals, numberOfExercises }: WorkoutsListItemProps): ReactElement => {
