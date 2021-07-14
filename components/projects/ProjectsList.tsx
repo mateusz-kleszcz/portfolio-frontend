@@ -1,5 +1,7 @@
 import { Project } from "types/Project";
 import ProjectItem from "./ProjectItem";
+import styles from '@styles/Projects.module.scss'
+import CommercialProjectsItem from "./CommercialProjectsItem";
 
 const ProjectsList = () => {
 
@@ -8,7 +10,7 @@ const ProjectsList = () => {
             id: 1,
             name: 'Song player',
             description: 'Basic online player',
-            imageURL: '/eee.png',
+            imageURL: '/music-player.png',
             link: 'audioplayer',
         },
         {
@@ -22,16 +24,48 @@ const ProjectsList = () => {
             id: 3,
             name: 'Workout Timer',
             description: 'Lorem ipsum',
-            imageURL: '/eee.png',
+            imageURL: '/music-player.png',
             link: 'workouttimer',
         }
     ]
 
-    const projects = list.map(item => <ProjectItem {...item} key={item.id} />)
+    const commercial: Project[] = [
+        {
+            id: 1,
+            name: 'Seed Poland',
+            description: 'Website of Cracovian startup, created via WordPress',
+            imageURL: '/seed-poland.png',
+            link: 'https://seedpoland.com/',
+        },
+        {
+            id: 2,
+            name: 'Slava Rent',
+            description: 'Website of Polish company to car rent, created in NextJS, React, NodeJS, MongoDB',
+            imageURL: '/slava-rent.png',
+            link: 'http://slawarent.pl/'
+        },
+        {
+            id: 3,
+            name: 'Błękitna planeta',
+            description: 'Website of Polish Pet shops, created in NextJS, React',
+            imageURL: '/blekitna-planeta.png',
+            link: '#',
+        }
+    ]
+
+    const projects = list.map(project => <ProjectItem {...project} key={project.id} />)
+    const commercialProjects = commercial.map(project => <CommercialProjectsItem {...project} key={project.id} />)
 
     return (
         <>
-            {projects}
+            <h1>My projects:</h1>
+            <div className={styles.projectList}>
+                {projects}
+            </div>
+            <h1>My commercial projects</h1>
+            <div className={styles.projectList}>
+                {commercialProjects}
+            </div>
         </>
     );
 };
