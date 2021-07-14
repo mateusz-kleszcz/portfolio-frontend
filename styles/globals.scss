@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'mixins';
 
 html, body {
   font-family: 'Lato';
@@ -13,9 +14,13 @@ html, body {
 }
 
 .main-navbar {
+  @include flexContainterRow;
+  justify-content: flex-start;
   background-color: $mainBlackColor;
+  box-sizing: border-box;
   width: 100%;
   margin: 0;
+  padding-left: 20px;
   height: $mainNavHeightDesktop;
   .logo {
     color: $mainWhiteColor;
@@ -23,14 +28,19 @@ html, body {
       margin: 0;
     }
   }
-  .links {
+  .links, .authControls {
     box-sizing: border-box;
+    padding-left: 30px;
     a {
       color: $mainWhiteColor;
       text-decoration: none;
       padding: 10px;
       font-size: $mainFontSize;
     }
+  }
+  .authControls {
+    margin-left: auto;
+    padding-right: 20px;
   }
 }
 
@@ -42,4 +52,7 @@ html, body {
   padding: 20px;
   box-sizing: border-box;
   margin-top: auto;
+  p {
+    margin: 0;
+  }
 }

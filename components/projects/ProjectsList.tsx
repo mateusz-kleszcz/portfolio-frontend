@@ -57,8 +57,8 @@ const ProjectsList = () => {
     const commercialProjects = commercial.map(project => <CommercialProjectsItem {...project} key={project.id} />)
 
     return (
-        <>
-            <h1>My projects:</h1>
+        <div className={styles.allProjects}>
+            <h1>My projects</h1>
             <div className={styles.projectList}>
                 {projects}
             </div>
@@ -66,7 +66,7 @@ const ProjectsList = () => {
             <div className={styles.projectList}>
                 {commercialProjects}
             </div>
-        </>
+        </div>
     );
 };
 

@@ -12,6 +12,10 @@ const Navbar = () => {
                 <Link href="/contact"><a>Contact</a></Link>
                 <Link href="/projects"><a>Projects</a></Link>
             </div>
+            <div className='authControls'>
+                <Link href="sign-in"><a>Sign In</a></Link>
+                <Link href="sign-up"><a>Sign Up</a></Link>
+            </div>
         </nav>
     );
 };

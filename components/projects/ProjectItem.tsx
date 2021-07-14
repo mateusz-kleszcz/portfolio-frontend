@@ -4,25 +4,25 @@ import styles from '@styles/Projects.module.scss'
 
 const ProjectItem = ({ name, description, imageURL, link }: Project) => {
     return (
-        <Link href={`/projects/${link}`}>
-            <div
-                className={styles.projectCard}
-                style={{ backgroundImage: `url("${imageURL}")` }}
-            >
-                <span>
-                    <div className={styles.projectName}>
-                        {name}
-                    </div>
-                    <div className={styles.projectDescription}>
-                        {description}
-                    </div>
-                    <div className={styles.controls}>
+        <div
+            className={styles.projectCard}
+            style={{ backgroundImage: `url("${imageURL}")` }}
+        >
+            <span>
+                <div className={styles.projectName}>
+                    {name}
+                </div>
+                <div className={styles.projectDescription}>
+                    {description}
+                </div>
+                <div className={styles.controls}>
+                    <Link href={`/projects/${link}`}>
                         <button>Go to project</button>
-                        <button>GitHub</button>
-                    </div>
-                </span>
-            </div>
-        </Link>
+                    </Link>
+                    <button>GitHub</button>
+                </div>
+            </span>
+        </div>
     );
 };
 
