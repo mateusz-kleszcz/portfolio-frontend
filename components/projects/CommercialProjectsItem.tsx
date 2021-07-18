@@ -1,11 +1,15 @@
 import { Project } from 'types/Project';
 import styles from '@styles/Projects.module.scss'
+import getConfig from 'next/config'
 
 const CommercialProjectsItem = ({ name, description, imageURL, link }: Project) => {
+
+    const { publicRuntimeConfig } = getConfig()
+
     return (
         <div
             className={styles.projectCard}
-            style={{ backgroundImage: `url("${imageURL}")` }}
+            style={{ backgroundImage: `url("${publicRuntimeConfig.API_ADDRESS}/${imageURL}")` }}
         >
             <span>
                 <div className={styles.projectName}>
