@@ -9,8 +9,10 @@ const SignUpForm = () => {
 
     const handleSignUp = async (e: React.SyntheticEvent) => {
         e.preventDefault()
+
         setEmailError('')
         setPasswordError('')
+
         try {
             const res = await fetch('http://localhost:8080/api/auth/signup', {
                 method: 'POST',
@@ -30,7 +32,7 @@ const SignUpForm = () => {
                 setPasswordError(data.errors.password)
             }
             if (data.user) {
-                console.log('user logged')
+                console.log('user signed')
             }
         } catch (err) {
             console.log(err)

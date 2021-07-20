@@ -1,6 +1,12 @@
 import Link from 'next/link'
+import { useEffect } from 'react';
 
-const Navbar = () => {
+const Navbar = (props: any) => {
+
+    useEffect(() => {
+        console.log(props)
+    }, [props])
+
     return (
         <nav className="main-navbar">
             <div className="logo">
