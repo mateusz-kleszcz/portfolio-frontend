@@ -1,105 +1,105 @@
-@import 'variables';
-@import 'mixins';
+@import "variables";
+@import "mixins";
 
 .workoutTimer {
-    @include flexContainterRow;
-    .timerCreator {
-        padding: 20px;
-        @include flexContainterColumn;
-        label {
-            font-size: 20px;
-            padding: 6px;
-        }
-        input[type=text] {
-            width: 80%;
-            border-radius: 4px;
-            padding: 12px 20px;
-            border: 1px solid gray;
-        }
-        input:focus {
-            outline: none;
-        }
-        div {
-            @include flexContainterRow;
-            input[type=range] {
-                width: 60%;
-                margin-right: 20px;
-            }
-            input[type=number] {
-                border-radius: 4px;
-                padding: 8px 12px;
-                border: 1px solid gray;
-                margin-right: 20px;
-            }
-        }
-        .addTrainingButton {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-        }
+  @include flexContainerRow;
+  .timerCreator {
+    padding: 20px;
+    @include flexContainerColumn;
+    label {
+      font-size: 20px;
+      padding: 6px;
     }
-    .workoutsList {
-        @include flexContainterColumn;
-        padding: 20px;
-        align-self: flex-start;
-            .workoutsListItem {
-            display: grid;
-            width: 100%;
-            grid-template-columns: repeat(6, 1fr);
-            justify-content: center;
-            .workoutName {
-                grid-column: 1 / 3;
-            }
-            .workoutDelete {
-                cursor: pointer;
-            }
-        }
+    input[type="text"] {
+      width: 80%;
+      border-radius: 4px;
+      padding: 12px 20px;
+      border: 1px solid gray;
     }
+    input:focus {
+      outline: none;
+    }
+    div {
+      @include flexContainerRow;
+      input[type="range"] {
+        width: 60%;
+        margin-right: 20px;
+      }
+      input[type="number"] {
+        border-radius: 4px;
+        padding: 8px 12px;
+        border: 1px solid gray;
+        margin-right: 20px;
+      }
+    }
+    .addTrainingButton {
+      background-color: #4caf50;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+    }
+  }
+  .workoutsList {
+    @include flexContainerColumn;
+    padding: 20px;
+    align-self: flex-start;
+    .workoutsListItem {
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(6, 1fr);
+      justify-content: center;
+      .workoutName {
+        grid-column: 1 / 3;
+      }
+      .workoutDelete {
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 .timer {
-    @include flexContainterColumn;
-    width: 100%;
-    height: 100%;
-    .timerHeader {
-        text-align: center;
+  @include flexContainerColumn;
+  width: 100%;
+  height: 100%;
+  .timerHeader {
+    text-align: center;
+  }
+  .timeLeft {
+    font-size: 144px;
+  }
+  .howManyLeft {
+    @include flexContainerRow;
+    margin-top: 5vh;
+    .timePassed {
+      @include flexContainerColumn;
     }
-    .timeLeft {
-        font-size: 144px;
+    .intervalsLeft {
+      @include flexContainerColumn;
     }
-    .howManyLeft {
-        @include flexContainterRow;
-        margin-top: 5vh;
-        .timePassed {
-            @include flexContainterColumn;
-        }
-        .intervalsLeft {
-            @include flexContainterColumn;
-        }
-        .exercisesLeft {
-            @include flexContainterColumn;
-        }
-        .workoutTimeLeft {
-            @include flexContainterColumn;
-        }
+    .exercisesLeft {
+      @include flexContainerColumn;
     }
-    .info {
-        margin-top: 5vh;
-        font-weight: bold;
-        font-size: 24px;
+    .workoutTimeLeft {
+      @include flexContainerColumn;
     }
-    .controls {
-        @include flexContainterRow;
-        margin-top: 5vh;
-        width: 20%;
-        justify-content: space-around;
-        img {
-            cursor: pointer;
-        }
+  }
+  .info {
+    margin-top: 5vh;
+    font-weight: bold;
+    font-size: 24px;
+  }
+  .controls {
+    @include flexContainerRow;
+    margin-top: 5vh;
+    width: 20%;
+    justify-content: space-around;
+    img {
+      cursor: pointer;
     }
+  }
 }

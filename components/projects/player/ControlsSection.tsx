@@ -19,10 +19,9 @@ const nextImageSrc = '/next.png'
 
 const ControlsSection = (): ReactElement => {
 
-    const dispatch = useDispatch()
-
     const { selectedAlbumSongs, selectedSongTitle, isPlaying, isShuffle, isRepeat } = useSelector((state: AppState) => state.playerReducer)
 
+    const dispatch = useDispatch()
     // pause or play song
     const handlePlayButtonClick = () => {
         if (isPlaying)
