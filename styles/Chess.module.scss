@@ -19,6 +19,12 @@ $boardSize: 600px;
         stroke: black;
         stroke-width: 20;
       }
+      .allowed {
+        width: $boardSize / 24;
+        height: $boardSize / 24;
+        border-radius: $boardSize;
+        background-color: rgba(0, 0, 0, 0.2);
+      }
     }
   }
 }

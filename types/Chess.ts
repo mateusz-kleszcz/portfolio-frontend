@@ -1,5 +1,7 @@
 export interface FieldType {
   isColorWhite: boolean; // true - white, false - black
+  isAllowed: boolean;
+  position: [number, number];
   piece: PieceType | null;
 }
 
@@ -14,8 +16,9 @@ export enum PieceName {
 
 export interface PieceType {
   name: PieceName;
-  isWhite: boolean;
   position: [number, number];
+  isWhite: boolean;
+  isFirstMove: boolean;
   value: number;
 }
 
