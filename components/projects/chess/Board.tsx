@@ -29,16 +29,15 @@ const Board = () => {
       }
       board.push(row);
     }
-    console.log(board);
     setBoardState(board);
   }, []);
 
   return (
     <div className={styles.board}>
-      {boardState.map((row) => (
-        <div className={styles.row}>
-          {row.map((field) => (
-            <Field field={field} />
+      {boardState.map((row, index) => (
+        <div className={styles.row} key={index}>
+          {row.map((field, index) => (
+            <Field field={field} key={index} />
           ))}
         </div>
       ))}

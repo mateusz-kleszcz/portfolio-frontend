@@ -1,6 +1,6 @@
 export interface FieldType {
   isColorWhite: boolean; // true - white, false - black
-  piece: Piece | null;
+  piece: PieceType | null;
 }
 
 export enum PieceName {
@@ -12,14 +12,15 @@ export enum PieceName {
   Pawn,
 }
 
-export interface Piece {
+export interface PieceType {
   name: PieceName;
   isWhite: boolean;
   position: [number, number];
   value: number;
 }
 
-export interface Game {
+export interface ChessGame {
+  selectedPiece: PieceType | null;
   isWhiteMove: boolean;
   timeWhite: number;
   timeBlack: number;

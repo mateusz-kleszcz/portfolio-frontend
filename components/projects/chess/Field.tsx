@@ -1,27 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import { FieldType } from "types/Chess";
 import styles from "@styles/Chess.module.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChessKing } from "@fortawesome/free-solid-svg-icons";
+import Piece from "./Piece";
+import { useSelector } from "react-redux";
+import { AppState } from "store";
 
 interface FieldProps {
   field: FieldType;
 }
 
 const Field = ({ field }: FieldProps) => {
-  console.log(field);
+  const [isFieldSelected, setIsFieldSelected] = useState<boolean>(false);
+
+  const { selectedPiece } = useSelector(
+    (state: AppState) => state.chessReducer
+  );
+
+  const handleFieldHighlight = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsFieldSelected(!isFieldSelected);
+  };
+
+  const handleFieldClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    console.log(piece);
+  };
+
+  const { piece } = field;
 
   return (
     <div
       className={styles.fieldContainer}
-      style={{ backgroundColor: field.isColorWhite ? "white" : "green" }}
+      style={{
+        backgroundColor: isFieldSelected
+          ? "red"
+          : field.isColorWhite
+          ? "white"
+          : "green",
+      }}
+      onContextMenu={handleFieldHighlight}
+      onClick={handleFieldClick}
     >
-      {field.piece && (
-        <FontAwesomeIcon
-          icon={faChessKing}
-          style={{ color: field.piece.isWhite ? "white" : "black" }}
-        />
-      )}
+      {piece && <Piece {...piece} />}
     </div>
   );
 };
