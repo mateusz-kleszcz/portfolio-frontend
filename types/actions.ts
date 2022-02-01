@@ -1,4 +1,4 @@
-import { PieceType } from "./Chess";
+import { FieldType, PieceType } from "./Chess";
 import { Song } from "./Player";
 import { WorkoutWithID } from "./WorkoutTimer";
 
@@ -139,8 +139,14 @@ export type WorkoutTimerActionsTypes =
   | DeleteWorkoutSuccess
   | DeleteWorkoutFail;
 
+export const CHANGE_BOARD_STATE = "CHANGE_BOARD_STATE";
 export const SELECT_PIECE = "SELECT_PIECE";
 export const MOVE_PIECE = "MOVE_PIECE";
+
+export interface ChangeBoardState {
+  type: typeof CHANGE_BOARD_STATE;
+  board: FieldType[][];
+}
 
 export interface SelectPiece {
   type: typeof SELECT_PIECE;
@@ -149,9 +155,11 @@ export interface SelectPiece {
 
 export interface MovePiece {
   type: typeof MOVE_PIECE;
+  piece: PieceType;
+  positionAfterMove: [number, number];
 }
 
-export type ChessActionsTypes = SelectPiece | MovePiece;
+export type ChessActionsTypes = ChangeBoardState | SelectPiece | MovePiece;
 
 export type AppActions =
   | PlayerActionsTypes

@@ -23,6 +23,7 @@ export interface PieceType {
 }
 
 export interface ChessGame {
+  board: FieldType[][];
   selectedPiece: PieceType | null;
   isWhiteMove: boolean;
   timeWhite: number;

@@ -5,6 +5,7 @@ import Piece from "./Piece";
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "store";
 import { selectPiece } from "@actions/chessActions/selectPiece";
+import { movePiece } from "@actions/chessActions/movePiece";
 
 const whiteSquareColor = "#eae9d2";
 const blackSquareColor = "#4b7399";
@@ -17,20 +18,26 @@ const Field = ({ position, piece, isAllowed, isColorWhite }: FieldType) => {
 
   const dispatch = useDispatch();
 
-  const { selectedPiece } = useSelector(
+  const { selectedPiece, isWhiteMove } = useSelector(
     (state: AppState) => state.chessReducer
   );
 
-  const handleFieldHighlight = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleFieldHighlight = (e: React.MouseEvent<HTMLDivElement>): void => {
     e.preventDefault();
     setIsFieldSelected(!isFieldSelected);
     if (!isFieldSelected) setFieldColor(highlightedSquareColor);
     else setFieldColor(isColorWhite ? whiteSquareColor : blackSquareColor);
   };
 
-  const handleFieldClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (piece !== null) {
+  const handleFieldClick = (): void => {
+    // if no piece is selected then select one in current color
+    if (piece !== null && piece.isWhite === isWhiteMove) {
       dispatch(selectPiece(piece));
+    } else {
+      // if the field is allowed and piece is selected then move it
+      if (selectedPiece !== null && isAllowed) {
+        dispatch(movePiece(selectedPiece, position));
+      }
     }
   };
 
