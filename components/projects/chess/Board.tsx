@@ -6,6 +6,7 @@ import Field from "./Field";
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "store";
 import { changeBoardState } from "@actions/chessActions/changeBoardState";
+import { markAllowedFields } from "./markAllowedFields";
 
 const getPieces = (i: number, j: number) => {
   const piece = pieces.find(
@@ -44,65 +45,10 @@ const Board = () => {
     dispatch(changeBoardState(board));
   }, []);
 
-  const isPieceAllowedToMove = (
-    x: number,
-    y: number,
-    isWhite: boolean,
-    newBoardState: FieldType[][]
-  ): void => {
-    if (0 <= x && x < 8 && 0 <= y && y < 8) {
-      if (newBoardState[x][y].piece?.isWhite !== isWhite)
-        newBoardState[x][y].isAllowed = true;
-    }
-  };
-
   useEffect(() => {
     if (selectedPiece !== null) {
-      let newBoard = board.map((row) => {
-        return row.map((field) => {
-          field.isAllowed = false;
-          return field;
-        });
-      });
-      const { name, position, isWhite, isFirstMove } = selectedPiece;
-      const [x, y] = position;
-      switch (name) {
-        case PieceName.Queen:
-          break;
-        case PieceName.Bishop:
-          break;
-        case PieceName.Knight:
-          const allowedMoves = [
-            [1, 2],
-            [2, 1],
-            [2, -1],
-            [1, -2],
-            [-1, -2],
-            [-2, -1],
-            [-2, 1],
-            [-1, 2],
-          ];
-          allowedMoves.map((move) => {
-            const moveX = x + move[0];
-            const moveY = y + move[1];
-            isPieceAllowedToMove(moveX, moveY, isWhite, newBoard);
-          });
-          break;
-        case PieceName.Rook:
-          break;
-        case PieceName.Pawn:
-          if (isWhite) {
-            if (isFirstMove) newBoard[x - 2][y].isAllowed = true;
-            newBoard[x - 1][y].isAllowed = true;
-          } else {
-            if (isFirstMove) newBoard[x + 2][y].isAllowed = true;
-            newBoard[x + 1][y].isAllowed = true;
-          }
-          break;
-        default:
-          break;
-      }
-      dispatch(changeBoardState(board));
+      const newBoard = markAllowedFields(selectedPiece, board);
+      dispatch(changeBoardState(newBoard));
     }
   }, [selectedPiece]);
 

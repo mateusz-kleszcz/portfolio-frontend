@@ -14,7 +14,7 @@ const highlightedSquareColor = "#cb655f";
 
 const Field = ({ position, piece, isAllowed, isColorWhite }: FieldType) => {
   const [isFieldSelected, setIsFieldSelected] = useState<boolean>(false);
-  const [fieldColor, setFieldColor] = useState(whiteSquareColor);
+  const [fieldColor, setFieldColor] = useState<string>(whiteSquareColor);
 
   const dispatch = useDispatch();
 
