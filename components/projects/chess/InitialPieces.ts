@@ -25,14 +25,14 @@ export const pieces: PieceType[] = [
   {
     name: PieceName.King,
     isWhite: false,
-    position: [0, 3],
+    position: [0, 4],
     value: 4,
     isFirstMove: true,
   },
   {
     name: PieceName.Queen,
     isWhite: false,
-    position: [0, 4],
+    position: [0, 3],
     value: 9,
     isFirstMove: true,
   },
@@ -137,14 +137,14 @@ export const pieces: PieceType[] = [
   {
     name: PieceName.King,
     isWhite: true,
-    position: [7, 3],
+    position: [7, 4],
     value: 4,
     isFirstMove: true,
   },
   {
     name: PieceName.Queen,
     isWhite: true,
-    position: [7, 4],
+    position: [7, 3],
     value: 9,
     isFirstMove: true,
   },

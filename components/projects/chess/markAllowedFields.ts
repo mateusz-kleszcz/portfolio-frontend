@@ -123,8 +123,10 @@ const checkAllowedMovesPawn = (
   if (nextField.piece === null) nextField.isMoveAllowed = true;
   if (firstMoveField.piece === null && isFirstMove)
     firstMoveField.isMoveAllowed = true;
-  if (leftField.piece !== null) leftField.isMoveAllowed = true;
-  if (rightField.piece !== null) rightField.isMoveAllowed = true;
+  if (leftField.piece !== null && leftField.piece?.isWhite !== isWhite)
+    leftField.isMoveAllowed = true;
+  if (rightField.piece !== null && rightField.piece?.isWhite !== isWhite)
+    rightField.isMoveAllowed = true;
 };
 
 const checkIsCastlingAllowed = (
@@ -137,9 +139,8 @@ const checkIsCastlingAllowed = (
   if (isFirstMove) {
     // check both directions
     [-1, 1].forEach((sign) => {
-      for (let i = 1; i < 4; i++) {
+      for (let i = 1; i < 5; i++) {
         const movedY = y + i * sign;
-        console.log(movedY);
         if (0 <= movedY && movedY < 8) {
           // castle is allowed
           if (
@@ -152,6 +153,7 @@ const checkIsCastlingAllowed = (
           if (board[x][movedY].piece !== null) {
             break;
           }
+          // check is rook didnt move yet
           if (
             board[x][movedY].piece !== null &&
             !board[x][movedY].piece?.isFirstMove
