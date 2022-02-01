@@ -36,6 +36,7 @@ const Board = () => {
           isColorWhite,
           isMoveAllowed: false,
           isCastlingAllowed: false,
+          isEnPassantAllowed: false,
           piece: getPieces(i, j),
           position: [i, j],
         };

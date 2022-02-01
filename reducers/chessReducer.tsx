@@ -4,7 +4,7 @@ import {
   MOVE_PIECE,
   SELECT_PIECE,
 } from "types/actions";
-import { ChessGame } from "types/Chess";
+import { ChessGame, PieceName } from "types/Chess";
 
 const initState: ChessGame = {
   board: [],
@@ -30,25 +30,37 @@ const chessReducer = (
         selectedPiece: action.selectedPiece,
       };
     case MOVE_PIECE:
-      const [beforeX, beforeY] = action.piece.position;
-      const [afterX, afterY] = action.positionAfterMove;
-      action.piece.position = action.positionAfterMove;
-      action.piece.isFirstMove = false;
       const newBoard = state.board.map((row) => {
         return row.map((field) => {
           field.isMoveAllowed = false;
           field.isCastlingAllowed = false;
+          field.isEnPassantAllowed = false;
           return field;
         });
       });
+      const { piece, positionAfterMove } = action;
+      const [beforeX, beforeY] = piece.position;
+      const [afterX, afterY] = positionAfterMove;
+      // check is it first move pawn 2 fields (en passant enable)
+      if (
+        piece.name === PieceName.Pawn &&
+        piece.isFirstMove &&
+        (afterX === 3 || afterX === 4)
+      ) {
+        newBoard[beforeX + (piece.isWhite ? -1 : 1)][
+          beforeY
+        ].isEnPassantAllowed = true;
+      }
+      piece.position = positionAfterMove;
+      piece.isFirstMove = false;
       newBoard[beforeX][beforeY].piece = null;
-      newBoard[afterX][afterY].piece = action.piece;
+      newBoard[afterX][afterY].piece = piece;
       return {
         ...state,
         board: newBoard,
         selectedPiece: null,
         isWhiteMove:
-          action.piece === state.selectedPiece
+          piece === state.selectedPiece
             ? !state.isWhiteMove
             : state.isWhiteMove,
       };

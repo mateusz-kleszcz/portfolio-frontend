@@ -2,6 +2,7 @@ export interface FieldType {
   isColorWhite: boolean; // true - white, false - black
   isMoveAllowed: boolean;
   isCastlingAllowed: boolean;
+  isEnPassantAllowed: boolean;
   position: [number, number];
   piece: PieceType | null;
 }

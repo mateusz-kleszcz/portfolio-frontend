@@ -127,6 +127,12 @@ const checkAllowedMovesPawn = (
     leftField.isMoveAllowed = true;
   if (rightField.piece !== null && rightField.piece?.isWhite !== isWhite)
     rightField.isMoveAllowed = true;
+  if (leftField.isEnPassantAllowed) {
+    leftField.isMoveAllowed = true;
+  }
+  if (rightField.isEnPassantAllowed) {
+    rightField.isMoveAllowed = true;
+  }
 };
 
 const checkIsCastlingAllowed = (

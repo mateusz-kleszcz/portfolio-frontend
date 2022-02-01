@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FieldType, PieceType } from "types/Chess";
+import { FieldType, PieceName, PieceType } from "types/Chess";
 import styles from "@styles/Chess.module.scss";
 import Piece from "./Piece";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,6 +17,7 @@ const Field = ({
   piece,
   isMoveAllowed,
   isCastlingAllowed,
+  isEnPassantAllowed,
   isColorWhite,
 }: FieldType) => {
   const [isFieldSelected, setIsFieldSelected] = useState<boolean>(false);
@@ -40,17 +41,21 @@ const Field = ({
     if (piece !== null && piece.isWhite === isWhiteMove) {
       dispatch(selectPiece(piece));
     } else {
+      const [x, y] = position;
       // if the field is allowed and piece is selected then move it
       if (selectedPiece !== null && isMoveAllowed) {
         dispatch(movePiece(selectedPiece, position));
       }
       if (selectedPiece !== null && isCastlingAllowed) {
         dispatch(movePiece(selectedPiece, position));
-        const [x, y] = position;
         const rook: PieceType =
           y === 1 ? board[x][0].piece! : board[x][7].piece!;
         const rookNewPositionY = y === 1 ? 2 : 4;
         dispatch(movePiece(rook, [x, rookNewPositionY]));
+      }
+      if (selectedPiece?.name === PieceName.Pawn && isEnPassantAllowed) {
+        dispatch(movePiece(selectedPiece, position));
+        board[x + (selectedPiece.isWhite ? 1 : -1)][y].piece = null;
       }
     }
   };
