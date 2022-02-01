@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "store";
 import { selectPiece } from "@actions/chessActions/selectPiece";
 import { movePiece } from "@actions/chessActions/movePiece";
+import { Droppable } from "react-beautiful-dnd";
 
 const whiteSquareColor = "#eae9d2";
 const blackSquareColor = "#4b7399";
@@ -74,19 +75,26 @@ const Field = ({
   }, [isColorWhite]);
 
   return (
-    <div
-      className={styles.fieldContainer}
-      style={{
-        backgroundColor: fieldColor,
-      }}
-      onContextMenu={handleFieldHighlight}
-      onClick={handleFieldClick}
-    >
-      {piece && <Piece {...piece} />}
-      {(isMoveAllowed || isCastlingAllowed) && (
-        <div className={styles.allowed}></div>
+    <Droppable droppableId={`${position[0]}x${position[1]}`}>
+      {(provided, snapshot) => (
+        <div {...provided.droppableProps} ref={provided.innerRef}>
+          <div
+            className={styles.fieldContainer}
+            style={{
+              backgroundColor: fieldColor,
+            }}
+            onContextMenu={handleFieldHighlight}
+            onClick={handleFieldClick}
+          >
+            {piece && <Piece {...piece} />}
+            {(isMoveAllowed || isCastlingAllowed) && (
+              <div className={styles.allowed}></div>
+            )}
+          </div>
+          <span style={{ display: "none" }}>{provided.placeholder}</span>
+        </div>
       )}
-    </div>
+    </Droppable>
   );
 };
 

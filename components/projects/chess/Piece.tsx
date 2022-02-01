@@ -11,6 +11,7 @@ import {
   faChessRook,
   IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
+import { Draggable } from "react-beautiful-dnd";
 
 const getChessPiece = (name: PieceName): IconDefinition => {
   switch (name) {
@@ -31,13 +32,27 @@ const getChessPiece = (name: PieceName): IconDefinition => {
   }
 };
 
-const Piece = ({ name, isWhite }: PieceType) => {
+const Piece = ({ name, position, isWhite }: PieceType) => {
   return (
-    <FontAwesomeIcon
-      className={styles.piece}
-      icon={getChessPiece(name)}
-      style={{ color: isWhite ? "white" : "black" }}
-    />
+    <Draggable
+      key={`${position[0]}x${position[1]}`}
+      draggableId={`${position[0]}x${position[1]}`}
+      index={0}
+    >
+      {(provided, snapshot) => (
+        <div
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+        >
+          <FontAwesomeIcon
+            className={styles.piece}
+            icon={getChessPiece(name)}
+            style={{ color: isWhite ? "white" : "black" }}
+          />
+        </div>
+      )}
+    </Draggable>
   );
 };
 

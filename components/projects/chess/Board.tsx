@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { pieces } from "./InitialPieces";
 import styles from "@styles/Chess.module.scss";
-import { FieldType, PieceName } from "types/Chess";
+import { FieldType, PieceName, PieceType } from "types/Chess";
 import Field from "./Field";
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "store";
 import { changeBoardState } from "@actions/chessActions/changeBoardState";
 import { markAllowedFields } from "./markAllowedFields";
+import { DragDropContext, DropResult, DragStart } from "react-beautiful-dnd";
+import { selectPiece } from "@actions/chessActions/selectPiece";
+import { movePiece } from "@actions/chessActions/movePiece";
 
 const getPieces = (i: number, j: number) => {
   const piece = pieces.find(
@@ -22,7 +25,9 @@ const Board = () => {
     (state: AppState) => state.chessReducer
   );
 
-  const { board } = useSelector((state: AppState) => state.chessReducer);
+  const { board, isWhiteMove } = useSelector(
+    (state: AppState) => state.chessReducer
+  );
 
   useEffect(() => {
     // get initial board and pieces
@@ -54,15 +59,37 @@ const Board = () => {
     }
   }, [selectedPiece]);
 
+  const handleDragEnd = (result: DropResult): void => {
+    const after = result.destination?.droppableId.split("x").map(Number);
+    if (after !== undefined && selectedPiece !== null) {
+      const [x, y] = after;
+      if (
+        (x !== selectedPiece.position[0] || y !== selectedPiece.position[1]) &&
+        selectedPiece.isWhite === isWhiteMove &&
+        board[x][y].isMoveAllowed
+      )
+        dispatch(movePiece(selectedPiece, [x, y]));
+    }
+  };
+
+  const handleDragStart = (initial: DragStart): void => {
+    const [x, y] = initial.draggableId.split("x").map(Number);
+    const piece = board[x][y].piece;
+    if (piece !== null && piece.isWhite === isWhiteMove)
+      dispatch(selectPiece(piece));
+  };
+
   return (
     <div className={styles.board}>
-      {board.map((row, index) => (
-        <div className={styles.row} key={index}>
-          {row.map((field, index) => (
-            <Field {...field} key={index} />
-          ))}
-        </div>
-      ))}
+      <DragDropContext onDragEnd={handleDragEnd} onDragStart={handleDragStart}>
+        {board.map((row, index) => (
+          <div className={styles.row} key={index}>
+            {row.map((field, index) => (
+              <Field {...field} key={index} />
+            ))}
+          </div>
+        ))}
+      </DragDropContext>
     </div>
   );
 };
