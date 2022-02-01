@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FieldType } from "types/Chess";
+import { FieldType, PieceType } from "types/Chess";
 import styles from "@styles/Chess.module.scss";
 import Piece from "./Piece";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,13 +12,19 @@ const blackSquareColor = "#4b7399";
 const selectedSquareColor = "#75c7e8";
 const highlightedSquareColor = "#cb655f";
 
-const Field = ({ position, piece, isAllowed, isColorWhite }: FieldType) => {
+const Field = ({
+  position,
+  piece,
+  isMoveAllowed,
+  isCastlingAllowed,
+  isColorWhite,
+}: FieldType) => {
   const [isFieldSelected, setIsFieldSelected] = useState<boolean>(false);
   const [fieldColor, setFieldColor] = useState<string>(whiteSquareColor);
 
   const dispatch = useDispatch();
 
-  const { selectedPiece, isWhiteMove } = useSelector(
+  const { selectedPiece, isWhiteMove, board } = useSelector(
     (state: AppState) => state.chessReducer
   );
 
@@ -35,8 +41,16 @@ const Field = ({ position, piece, isAllowed, isColorWhite }: FieldType) => {
       dispatch(selectPiece(piece));
     } else {
       // if the field is allowed and piece is selected then move it
-      if (selectedPiece !== null && isAllowed) {
+      if (selectedPiece !== null && isMoveAllowed) {
         dispatch(movePiece(selectedPiece, position));
+      }
+      if (selectedPiece !== null && isCastlingAllowed) {
+        dispatch(movePiece(selectedPiece, position));
+        const [x, y] = position;
+        const rook: PieceType =
+          y === 1 ? board[x][0].piece! : board[x][7].piece!;
+        const rookNewPositionY = y === 1 ? 2 : 4;
+        dispatch(movePiece(rook, [x, rookNewPositionY]));
       }
     }
   };
@@ -64,7 +78,9 @@ const Field = ({ position, piece, isAllowed, isColorWhite }: FieldType) => {
       onClick={handleFieldClick}
     >
       {piece && <Piece {...piece} />}
-      {isAllowed && <div className={styles.allowed}></div>}
+      {(isMoveAllowed || isCastlingAllowed) && (
+        <div className={styles.allowed}></div>
+      )}
     </div>
   );
 };

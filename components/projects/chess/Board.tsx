@@ -34,7 +34,8 @@ const Board = () => {
         const isColorWhite: boolean = isColorWhiteNumber ? true : false;
         const field: FieldType = {
           isColorWhite,
-          isAllowed: false,
+          isMoveAllowed: false,
+          isCastlingAllowed: false,
           piece: getPieces(i, j),
           position: [i, j],
         };

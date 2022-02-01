@@ -11,12 +11,12 @@ const isPieceAllowed = (
   if (0 <= x && x < 8 && 0 <= y && y < 8) {
     // if there is no piece then field is allowed
     if (board[x][y].piece === null) {
-      board[x][y].isAllowed = true;
+      board[x][y].isMoveAllowed = true;
       return true;
     }
     // if there is the enemy piece here, this is the last allowed field
     else if (board[x][y].piece!.isWhite !== isWhite) {
-      board[x][y].isAllowed = true;
+      board[x][y].isMoveAllowed = true;
       return false;
     }
   }
@@ -120,11 +120,48 @@ const checkAllowedMovesPawn = (
   const firstMoveField = isWhite ? board[x - 2][y] : board[x + 2][y];
   const leftField = isWhite ? board[x - 1][y - 1] : board[x + 1][y + 1];
   const rightField = isWhite ? board[x - 1][y + 1] : board[x + 1][y - 1];
-  if (nextField.piece === null) nextField.isAllowed = true;
+  if (nextField.piece === null) nextField.isMoveAllowed = true;
   if (firstMoveField.piece === null && isFirstMove)
-    firstMoveField.isAllowed = true;
-  if (leftField.piece !== null) leftField.isAllowed = true;
-  if (rightField.piece !== null) rightField.isAllowed = true;
+    firstMoveField.isMoveAllowed = true;
+  if (leftField.piece !== null) leftField.isMoveAllowed = true;
+  if (rightField.piece !== null) rightField.isMoveAllowed = true;
+};
+
+const checkIsCastlingAllowed = (
+  selectedPiece: PieceType,
+  board: FieldType[][]
+): void => {
+  const { position, isFirstMove } = selectedPiece;
+  const [x, y] = position;
+  // check is king moved
+  if (isFirstMove) {
+    // check both directions
+    [-1, 1].forEach((sign) => {
+      for (let i = 1; i < 4; i++) {
+        const movedY = y + i * sign;
+        console.log(movedY);
+        if (0 <= movedY && movedY < 8) {
+          // castle is allowed
+          if (
+            board[x][movedY].piece?.name === PieceName.Rook &&
+            board[x][movedY].piece?.isFirstMove
+          ) {
+            board[x][y + 2 * sign].isCastlingAllowed = true;
+          }
+          // check is some piece is standing in the way
+          if (board[x][movedY].piece !== null) {
+            break;
+          }
+          if (
+            board[x][movedY].piece !== null &&
+            !board[x][movedY].piece?.isFirstMove
+          ) {
+            break;
+          }
+        }
+      }
+    });
+  }
 };
 
 export const markAllowedFields = (
@@ -133,7 +170,7 @@ export const markAllowedFields = (
 ): FieldType[][] => {
   let newBoard = board.map((row) => {
     return row.map((field) => {
-      field.isAllowed = false;
+      field.isMoveAllowed = false;
       return field;
     });
   });
@@ -144,6 +181,7 @@ export const markAllowedFields = (
         selectedPiece,
         newBoard
       );
+      checkIsCastlingAllowed(selectedPiece, newBoard);
       break;
     case PieceName.Queen:
       checkAllowedMovesLinear(

@@ -36,7 +36,8 @@ const chessReducer = (
       action.piece.isFirstMove = false;
       const newBoard = state.board.map((row) => {
         return row.map((field) => {
-          field.isAllowed = false;
+          field.isMoveAllowed = false;
+          field.isCastlingAllowed = false;
           return field;
         });
       });
@@ -46,7 +47,10 @@ const chessReducer = (
         ...state,
         board: newBoard,
         selectedPiece: null,
-        isWhiteMove: !state.isWhiteMove,
+        isWhiteMove:
+          action.piece === state.selectedPiece
+            ? !state.isWhiteMove
+            : state.isWhiteMove,
       };
     default:
       return { ...state };
