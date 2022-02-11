@@ -7,6 +7,7 @@ import { AppState } from "store";
 import { selectPiece } from "@actions/chessActions/selectPiece";
 import { movePiece } from "@actions/chessActions/movePiece";
 import { Droppable } from "react-beautiful-dnd";
+import useChessAudio from "hooks/useChessAudio";
 
 const whiteSquareColor = "#eae9d2";
 const blackSquareColor = "#4b7399";
@@ -23,6 +24,9 @@ const Field = ({
 }: FieldType) => {
   const [isFieldSelected, setIsFieldSelected] = useState<boolean>(false);
   const [fieldColor, setFieldColor] = useState<string>(whiteSquareColor);
+
+  const [moveEffectPlaying, moveEffectToggle] = useChessAudio("MOVE");
+  const [castleEffectPlaying, castleEffectToggle] = useChessAudio("CASTLE");
 
   const dispatch = useDispatch();
 
@@ -45,13 +49,15 @@ const Field = ({
       const [x, y] = position;
       // if the field is allowed and piece is selected then move it
       if (selectedPiece !== null && isMoveAllowed) {
+        moveEffectToggle();
         dispatch(movePiece(selectedPiece, position));
       }
       if (selectedPiece !== null && isCastlingAllowed) {
+        castleEffectToggle();
         dispatch(movePiece(selectedPiece, position));
         const rook: PieceType =
-          y === 1 ? board[x][0].piece! : board[x][7].piece!;
-        const rookNewPositionY = y === 1 ? 2 : 4;
+          y === 2 ? board[x][0].piece! : board[x][7].piece!;
+        const rookNewPositionY = y === 2 ? 3 : 5;
         dispatch(movePiece(rook, [x, rookNewPositionY]));
       }
       if (selectedPiece?.name === PieceName.Pawn && isEnPassantAllowed) {

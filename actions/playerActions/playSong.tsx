@@ -1,6 +1,6 @@
-import { PlayerActionsTypes, PLAY_SONG } from "types/actions"
+import { PlayerActionsTypes, PLAY_SONG } from "types/actions";
 
 export const playSong = (title: string): PlayerActionsTypes => ({
-    type: PLAY_SONG,
-    selectedSongTitle: title,
-})
+  type: PLAY_SONG,
+  selectedSongTitle: title,
+});
