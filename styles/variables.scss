@@ -1,13 +1,18 @@
 // background and font color
-$mainBlackColor: #1d1f21;
+$mainBlackColor: #000000;
+$backgroundColor: #e5e5e5;
 $mainWhiteColor: #edf1f8;
+$mainYellowColor: #edd70d;
 $bigFontSize: 1em;
 $mainFontSize: 0.9em;
 $smallFontSize: 0.8em;
 
 // sizes of layout's elements
-$mainNavHeightDesktop: 48px;
+$mainNavHeightDesktop: 80px;
 $footerHeightDesktop: 56px;
 
 // custom parts
 $durationBarHeight: 12px;
+
+$headerFont: "Staatliches";
+$mainFont: "Quicksand";

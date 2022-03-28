@@ -1,22 +1,23 @@
 import { FieldType, PieceName, PieceType } from "types/Chess";
 
 // check is piece allowed on (x, y) position, update board with allowed position and return true if we can continue checking
-const isPieceAllowed = (
+export const isPieceAllowed = (
   x: number,
   y: number,
   isWhite: boolean,
-  board: FieldType[][]
+  board: FieldType[][],
+  isFieldMark: boolean
 ): boolean => {
   // if position is fitting the chessboard
   if (0 <= x && x < 8 && 0 <= y && y < 8) {
     // if there is no piece then field is allowed
     if (board[x][y].piece === null) {
-      board[x][y].isMoveAllowed = true;
+      if (isFieldMark) board[x][y].isMoveAllowed = true;
       return true;
     }
     // if there is the enemy piece here, this is the last allowed field
     else if (board[x][y].piece!.isWhite !== isWhite) {
-      board[x][y].isMoveAllowed = true;
+      if (isFieldMark) board[x][y].isMoveAllowed = true;
       return false;
     }
   }
@@ -89,7 +90,7 @@ const checkAllowedMovesLinear = (
     for (let i = 1; i < 8; i++) {
       const moveX = x + dirX * i;
       const moveY = y + dirY * i;
-      if (!isPieceAllowed(moveX, moveY, isWhite, board)) {
+      if (!isPieceAllowed(moveX, moveY, isWhite, board, true)) {
         break;
       }
     }
@@ -106,7 +107,7 @@ const checkAllowedMovesOnce = (
   allowedMoves.map((move) => {
     const moveX = x + move[0];
     const moveY = y + move[1];
-    isPieceAllowed(moveX, moveY, isWhite, board);
+    isPieceAllowed(moveX, moveY, isWhite, board, true);
   });
 };
 
@@ -172,7 +173,7 @@ const checkIsCastlingAllowed = (
   }
 };
 
-export const markAllowedFields = (
+const markAllowedFields = (
   selectedPiece: PieceType,
   board: FieldType[][]
 ): FieldType[][] => {

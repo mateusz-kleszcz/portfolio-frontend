@@ -12,7 +12,6 @@ import {
   IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { Draggable } from "react-beautiful-dnd";
-import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const getChessPiece = (name: PieceName): IconDefinition => {
@@ -35,10 +34,6 @@ const getChessPiece = (name: PieceName): IconDefinition => {
 };
 
 const Piece = ({ name, position, isWhite }: PieceType) => {
-  useEffect(() => {
-    console.log(position);
-  }, [position]);
-
   return (
     <AnimatePresence>
       <Draggable

@@ -8,6 +8,7 @@ import { selectPiece } from "@actions/chessActions/selectPiece";
 import { movePiece } from "@actions/chessActions/movePiece";
 import { Droppable } from "react-beautiful-dnd";
 import useChessAudio from "hooks/useChessAudio";
+import { isFieldUnderAttack } from "./checkIsCheck";
 
 const whiteSquareColor = "#eae9d2";
 const blackSquareColor = "#4b7399";
@@ -51,6 +52,7 @@ const Field = ({
       if (selectedPiece !== null && isMoveAllowed) {
         moveEffectToggle();
         dispatch(movePiece(selectedPiece, position));
+        isFieldUnderAttack(board, isWhiteMove, [1, 1]);
       }
       if (selectedPiece !== null && isCastlingAllowed) {
         castleEffectToggle();

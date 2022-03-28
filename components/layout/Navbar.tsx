@@ -4,30 +4,29 @@ const Navbar = (props: any) => {
   return (
     <nav className="main-navbar">
       <div className="logo">
-        <h1>MK</h1>
+        <h1>
+          mateusz <span className="last-word">kleszcz</span>
+        </h1>
       </div>
       <div className="links">
         <Link href="/">
           <a>Home</a>
         </Link>
         <Link href="/about">
-          <a>About</a>
+          <a>Portfolio</a>
         </Link>
         <Link href="/contact">
           <a>Contact</a>
         </Link>
-        <Link href="/projects">
-          <a>Projects</a>
-        </Link>
       </div>
-      <div className="authControls">
+      {/* <div className="authControls">
         <Link href="/auth/signin">
           <a>Sign In</a>
         </Link>
         <Link href="/auth/signup">
           <a>Sign Up</a>
         </Link>
-      </div>
+      </div> */}
     </nav>
   );
 };
