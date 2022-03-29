@@ -5,12 +5,13 @@ const HeroText = () => {
   return (
     <div className={styles.heroText}>
       <h2>Cześć, jestem</h2>
-      <h1>mateusz</h1>
-      <h1>kleszcz</h1>
+      <div className={styles.name}>
+        <h1>mateusz</h1>
+        <h1>kleszcz</h1>
+      </div>
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur ex
-        earum ducimus! Voluptatem quisquam nam quidem quaerat explicabo
-        consequatur
+        earum ducimus!
       </p>
       <button>skontaktuj się</button>
     </div>

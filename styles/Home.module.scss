@@ -6,6 +6,9 @@
   width: 100%;
   box-sizing: border-box;
   padding: 0 19% 0 13%;
+  .row {
+    @include flexContainerRow();
+  }
   .heroText {
     @include flexContainerColumn();
     align-items: flex-start;
@@ -14,26 +17,31 @@
       font-family: $mainFont;
       font-style: normal;
       font-weight: 500;
-      font-size: 36px;
+      font-size: 28px;
       line-height: 45px;
       margin-bottom: 0;
     }
-    h1 {
-      font-family: $headerFont;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 96px;
-      line-height: 120px;
-      text-transform: uppercase;
-      color: $mainBlackColor;
-      margin: 0;
-      align-self: flex-end;
-      &:nth-child(2) {
-        margin-right: 110px;
-        margin-bottom: -70px;
-      }
-      &:nth-child(3) {
-        color: $mainYellowColor;
+    .name {
+      @include flexContainerColumn();
+      padding-right: 80px;
+      box-sizing: border-box;
+      h1 {
+        font-family: $headerFont;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 78px;
+        line-height: 120px;
+        text-transform: uppercase;
+        color: $mainBlackColor;
+        margin: 0;
+        align-self: flex-end;
+        &:nth-child(1) {
+          margin-right: 110px;
+          margin-bottom: -70px;
+        }
+        &:nth-child(2) {
+          color: $mainYellowColor;
+        }
       }
     }
     p {
@@ -41,7 +49,7 @@
       font-family: $mainFont;
       font-style: normal;
       font-weight: 500;
-      font-size: 30px;
+      font-size: 28px;
       line-height: 45px;
     }
     button {
@@ -56,8 +64,42 @@
       line-height: 45px;
       text-transform: uppercase;
       border: none;
+      cursor: pointer;
     }
   }
   .heroImage {
+    @include flexContainerColumn();
+    justify-content: flex-end;
+    width: 40vw;
+    .heroBackground {
+      width: 53vw;
+      height: 80vh;
+      top: 10vh;
+      position: absolute;
+      background-image: url("../public/shapes.svg");
+      background-size: contain;
+      z-index: 100;
+    }
+    img {
+      width: 70%;
+      height: 70%;
+    }
+  }
+  .scrollButton {
+    @include flexContainerRow();
+    margin-top: 12vh;
+    cursor: pointer;
+    img {
+      width: 50px;
+    }
+    h1 {
+      font-family: $headerFont;
+      color: $mainBlackColor;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 36px;
+      line-height: 45px;
+      margin: 0 50px;
+    }
   }
 }
