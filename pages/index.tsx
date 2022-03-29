@@ -1,9 +1,5 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.scss'
+import Container from "@components/home/Container";
 
 export default function Home() {
-  return (
-    <div>
-    </div>
-  )
+  return <Container />;
 }
