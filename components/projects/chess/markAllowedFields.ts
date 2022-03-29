@@ -173,7 +173,7 @@ const checkIsCastlingAllowed = (
   }
 };
 
-const markAllowedFields = (
+export const markAllowedFields = (
   selectedPiece: PieceType,
   board: FieldType[][]
 ): FieldType[][] => {

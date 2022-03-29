@@ -27,4 +27,5 @@ export const isFieldUnderAttack = (
   pieces.forEach((piece) => {
     console.log(piece);
   });
+  return true;
 };
