@@ -5,7 +5,7 @@
   height: calc(100vh - $mainNavHeightDesktop);
   width: 100%;
   box-sizing: border-box;
-  padding: 0 19% 0 $paddingContainerSides;
+  padding: 0 $paddingContainerSides;
   .row {
     @include flexContainerRow();
   }
@@ -103,6 +103,61 @@
       font-size: 36px;
       line-height: 45px;
       margin: 0 50px;
+    }
+  }
+  .aboutMe {
+    @include flexContainerColumn();
+    .row {
+      @include flexContainerRow();
+      margin-top: -8vh;
+      p {
+        margin-top: 5vh;
+        width: 40%;
+        font-family: $mainFont;
+        font-size: 16px;
+      }
+      .aboutMeCard {
+        width: 12vw;
+        height: 12vw;
+        padding: 16px;
+        margin-left: 2vw;
+        box-shadow: $mainShadow;
+        position: relative;
+        background: #fff;
+        .cardHighlight {
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: $mainYellowColor;
+          transform: rotate(5deg);
+          width: 13vw;
+          height: 13vw;
+          z-index: -1;
+        }
+        h1 {
+          font-family: $headerFont;
+          margin: 0;
+          font-size: 28px;
+        }
+        p {
+          width: 100%;
+          font-family: $mainFont;
+          margin: 0;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  .mySkills {
+    @include flexContainerRow();
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    .skill {
+      @include flexContainerColumn();
+      svg {
+        width: 80px;
+        height: 80px;
+      }
     }
   }
 }
