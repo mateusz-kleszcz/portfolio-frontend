@@ -5,7 +5,7 @@
   height: calc(100vh - $mainNavHeightDesktop);
   width: 100%;
   box-sizing: border-box;
-  padding: 0 19% 0 13%;
+  padding: 0 19% 0 $paddingContainerSides;
   .row {
     @include flexContainerRow();
   }
@@ -20,29 +20,6 @@
       font-size: 28px;
       line-height: 45px;
       margin-bottom: 0;
-    }
-    .name {
-      @include flexContainerColumn();
-      padding-right: 80px;
-      box-sizing: border-box;
-      h1 {
-        font-family: $headerFont;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 78px;
-        line-height: 120px;
-        text-transform: uppercase;
-        color: $mainBlackColor;
-        margin: 0;
-        align-self: flex-end;
-        &:nth-child(1) {
-          margin-right: 110px;
-          margin-bottom: -70px;
-        }
-        &:nth-child(2) {
-          color: $mainYellowColor;
-        }
-      }
     }
     p {
       color: $mainBlackColor;

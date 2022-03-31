@@ -1,74 +1,96 @@
 @import "variables";
 @import "mixins";
 
-.allProjects {
-  margin-bottom: 50px;
-  h1 {
-    text-align: center;
-    margin-top: 32px;
+$imageWidth: 36vw;
+
+.projectContainer {
+  @include flexContainerColumn();
+  box-sizing: border-box;
+  padding: 0 $paddingContainerSides;
+  .header {
+    align-self: flex-start;
+    h1 {
+      color: $mainBlackColor;
+      font-family: $headerFont;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 96px;
+      line-height: 120px;
+      margin: 0;
+      &:nth-child(1) {
+        color: $mainYellowColor;
+        margin-bottom: -115px;
+        margin-left: -5px;
+      }
+    }
   }
   .projectList {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    margin: 5vh 10% 0 10%;
-    column-gap: 15%;
-    row-gap: 5vh;
+    width: 100%;
+    margin-top: 5vh;
     .projectCard {
-      @include flexContainerColumn;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-      height: 30vh;
-      background-size: cover;
-      position: relative;
-      span {
-        @include flexContainerColumn;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        background: rgba(0, 0, 0, 0.6);
-        transition: all 0.5s;
+      @include flexContainerRow();
+      margin-bottom: 14vh;
+      gap: 5vw;
+      .projectInfo {
+        width: 33vw;
         .projectName {
-          display: none;
-          font-size: 28px;
-          width: 70%;
-          color: $mainWhiteColor;
+          font-family: $headerFont;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 36px;
+          line-height: 45px;
+          width: fit-content;
+          padding: 0 15px;
+          background-image: linear-gradient(
+            #fff 30%,
+            $mainYellowColor 30% 65%,
+            #fff 65%
+          );
+          color: $mainBlackColor;
+          margin: 0;
+        }
+        .projectTechnologies {
+          font-family: $headerFont;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 36px;
+          line-height: 45px;
+          color: $mainBlackColor;
+          margin: 0;
+          margin-top: 30px;
         }
         .projectDescription {
-          display: none;
-          margin-top: 10px;
-          width: 70%;
-          color: $mainWhiteColor;
-          text-align: center;
-        }
-        .controls {
-          display: none;
-          margin-top: 10px;
-          button {
-            color: $mainWhiteColor;
-            background: none;
-            border: 2px solid $mainWhiteColor;
-            border-radius: 20px;
-            font-size: 16px;
-            cursor: pointer;
-            padding: 5px 12px;
-            margin-right: 5px;
-          }
+          font-family: $mainFont;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 24px;
+          line-height: 30px;
+          color: $mainBlackColor;
         }
       }
-      &:hover {
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-        span {
-          opacity: 1;
-          .projectName {
-            display: flex;
-            justify-content: center;
-          }
-          .projectDescription {
-            display: flex;
-            justify-content: center;
-          }
-          .controls {
-            display: flex;
+      .projectImage {
+        width: $imageWidth;
+        height: $imageWidth * 9/16;
+        position: relative;
+        cursor: pointer;
+        .projectHighlight {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          transform: rotate(-5deg);
+          background-color: $mainYellowColor;
+          z-index: -1;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      &:nth-child(even) {
+        flex-direction: row-reverse;
+        .projectImage {
+          .projectHighlight {
+            transform: rotate(5deg);
           }
         }
       }

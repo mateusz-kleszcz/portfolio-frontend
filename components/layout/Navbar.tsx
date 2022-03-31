@@ -12,7 +12,7 @@ const Navbar = (props: any) => {
         <Link href="/">
           <a>Home</a>
         </Link>
-        <Link href="/about">
+        <Link href="/portfolio">
           <a>Portfolio</a>
         </Link>
         <Link href="/contact">

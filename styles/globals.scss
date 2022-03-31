@@ -4,7 +4,6 @@
 html,
 body {
   font-family: "Lato";
-  background-color: $mainWhiteColor;
   margin: 0;
   .container {
     width: 100%;
@@ -17,12 +16,12 @@ body {
 .main-navbar {
   @include flexContainerRow;
   box-sizing: border-box;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
   height: $mainNavHeightDesktop;
   margin: 0;
-  padding-left: 20px;
-  background-color: $mainWhiteColor;
+  padding: 0 $paddingContainerSides;
+  background-color: #fff;
   .logo {
     color: $mainBlackColor;
     font-size: 36px;
@@ -67,5 +66,33 @@ body {
   margin-top: auto;
   p {
     margin: 0;
+  }
+}
+
+.highlightedHeaderContainer {
+  width: auto;
+  align-self: flex-start;
+  .highlightedHeader {
+    @include flexContainerColumn();
+    padding-right: 80px;
+    box-sizing: border-box;
+    h1 {
+      font-family: $headerFont;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 78px;
+      line-height: 120px;
+      text-transform: uppercase;
+      color: $mainYellowColor;
+      margin: 0;
+      align-self: flex-end;
+      &:nth-child(1) {
+        margin-right: 5px;
+        margin-bottom: -115px;
+      }
+      &:nth-child(2) {
+        color: $mainBlackColor;
+      }
+    }
   }
 }
