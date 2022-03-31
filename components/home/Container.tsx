@@ -9,7 +9,7 @@ const Container = () => {
     <div className={styles.container}>
       <div className={styles.row}>
         <HeroText />
-        <HeroImage />
+        <HeroImage isBackground={true} />
       </div>
       <ScrollButton />
     </div>

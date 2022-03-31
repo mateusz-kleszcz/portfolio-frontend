@@ -3,10 +3,14 @@ import styles from "@styles/Home.module.scss";
 
 const elipseImageSrc = "/ellipse.svg";
 
-const HeroImage = () => {
+interface HeroImageProps {
+  isBackground: boolean;
+}
+
+const HeroImage = ({ isBackground }: HeroImageProps) => {
   return (
     <div className={styles.heroImage}>
-      <div className={styles.heroBackground}> </div>
+      {isBackground && <div className={styles.heroBackground}> </div>}
       <img src={elipseImageSrc} alt="elipse" />
     </div>
   );

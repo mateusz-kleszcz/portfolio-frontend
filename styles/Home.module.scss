@@ -13,6 +13,9 @@
     @include flexContainerColumn();
     align-items: flex-start;
     width: 38vw;
+    // background-image: url("../public/code.svg");
+    // background-size: contain;
+    // background-repeat: no-repeat;
     h2 {
       font-family: $mainFont;
       font-style: normal;
