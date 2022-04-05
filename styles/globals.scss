@@ -57,15 +57,48 @@ body {
 }
 
 .main-footer {
-  background-color: $mainBlackColor;
-  color: $mainWhiteColor;
-  width: 100%;
-  height: $footerHeightDesktop;
-  padding: 20px;
+  @include flexContainerRow();
+  background-color: $mainYellowColor;
+  color: $mainBlackColor;
+  padding: 50px 0;
   box-sizing: border-box;
-  margin-top: auto;
-  p {
-    margin: 0;
+  .logo {
+    font-family: $headerFont;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 45px;
+    @include flexContainerColumn();
+    h1 {
+      margin: 0;
+      &:nth-child(2) {
+        color: $mainWhiteColor;
+        margin-left: 150px;
+        margin-top: -5px;
+      }
+    }
+  }
+  .social-links, .contact {
+    @include flexContainerColumn();
+    height: 24px;
+    .row {
+      @include flexContainerRow();
+      justify-content: flex-start;
+      height: 100%;
+      margin-bottom: 10px;
+      svg {
+        height: 100%;
+        margin-right: 10px;
+      }
+      a, p {
+        color: $mainBlackColor;
+        font-family: $mainFont;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+      }
+    }
   }
 }
 

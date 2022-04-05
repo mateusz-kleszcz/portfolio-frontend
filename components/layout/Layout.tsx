@@ -17,7 +17,7 @@ const Layout: FunctionComponent = ({ children }) => {
       <div className="container">
         <Navbar />
         {children}
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </>
   );
