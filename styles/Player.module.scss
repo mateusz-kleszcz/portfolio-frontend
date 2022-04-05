@@ -1,4 +1,10 @@
 @import 'variables';
+@import 'mixins';
+
+$albumListBackgroundColor: #262626;
+$playerBackground: #323436;
+$scrollColor: #d3d3d3;
+$durationBarHeight: 10px;
 
 .audioPlayer{
     width: 100%;
@@ -7,23 +13,25 @@
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 85% 15%;
     #albumsList {
-        background-color: #262626;
+        background-color: $albumListBackgroundColor;
         grid-column: 1/4;
         overflow-y: scroll;
         .albumHeader {
-            width: 100%;
-            padding: 15px 12px;
-            font-size: $smallFontSize;
-            box-sizing: border-box;
-            color: $mainWhiteColor;
-            display: flex;
+            @include flexContainerRow();
             justify-content: space-between;
+            padding: 15px 12px;
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: $mainFont;
+            color: $mainWhiteColor;
             h1 {
                 margin: 0;
             }
         }
         .albumLabel {
-            display: flex;
+            @include flexContainerRow();
+            font-family: $mainFont;
+            color: $mainWhiteColor;
             .albumCover {
                 width: 20%;
                 .coverImage {
@@ -31,9 +39,7 @@
                 }
             }
             .songDetails {
-                display: flex;
-                justify-content: space-between;
-                width: 100%;
+                @include flexContainerRow();
                 padding: 0 5%;
                 box-sizing: border-box;
                 .songDetailsLeft {
@@ -56,12 +62,12 @@
         }
     }
     #songsList {
-        background-color: #323436;
+        background-color: $playerBackground;
         grid-column: 4/13;
         overflow-y: scroll;
     }
     #songInfo {
-        background-color: #323436;
+        background-color: $playerBackground;
         grid-column: 1/13;
         grid-template-columns: repeat(12, 1fr);
     }
@@ -87,13 +93,14 @@
 }
 
 .songLabel {
-    width: 100%;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    color: $mainWhiteColor;
+    width: 100%;
     padding: 12px 12px;
-    font-size: $mainFontSize;
     box-sizing: border-box;
+    font-size: 16px;
+    font-family: $mainFont;
+    color: $mainWhiteColor;
     .songId {
         grid-column: 1/2;
         display: flex;
@@ -112,24 +119,19 @@
     .songDuration {
         grid-column: 10/11;
         display: flex;
-        justify-content: center;
         align-items: center;
     }
     .playSong {
         grid-column: 11/12;
         place-items: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flexContainerRow();
         div {
             cursor: pointer;
         }
     }
     .addToPlaylist {
         grid-column: 12/13;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flexContainerRow();
         div {
             cursor: pointer;
         }
@@ -162,26 +164,26 @@
         }
         .albumDetails {
             width: 80%;
-            display: flex;
-            flex-direction: column;
+            padding: 12px 0;
+            @include flexContainerColumn();
             justify-content: space-around;
-            align-items: center;
-            font-size: $mainFontSize;
+            font-family: $mainFont;
+            font-size: 16px;
         }
     }
     .controlsSection {
         grid-column: 4/10;
-        display: flex;
-        flex-direction: column;
+        @include flexContainerColumn();
         justify-content: space-around;
+        padding: 8px 0;
         .controls {
-            display: flex;
-            width: 100%;
+            @include flexContainerRow();
             justify-content: space-around;
-            align-items: center;
             .shuffleButton, .repeatButton{
-                font-size: 20px;
+                width: 30px;
+                height: 30px;
                 cursor: pointer;
+                color: $mainWhiteColor;
             }
             .controlButton {
                 width: 30px;
@@ -190,17 +192,16 @@
             }
         }
         .duration {
-            display: flex;
+            @include flexContainerRow();
             justify-content: space-around;
-            align-items: center;
             height: $durationBarHeight;
-            font-size: $smallFontSize;
-            width: 100%;
+            font-family: $mainFont;
+            font-size: 16px;
             .durationBar {
                 display: flex;
                 width: 80%;
                 height: $durationBarHeight;
-                background-color: #BDBDBD;
+                background-color: $scrollColor;
                 border-radius: $durationBarHeight / 2;
                 cursor: pointer;
                 .progress {
@@ -213,26 +214,25 @@
     }
     .volumeSection {
         grid-column: 11/13;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        width: 100%;
+        @include flexContainerRow();
+        justify-content: space-around;
         .volumeIcon {
-            width: 32px;
-            height: 26px;
-            font-size: 22px;
+            width: 20%;
+            height: 30px;
+            svg {
+                height: 100%;
+            }
         }
         .volumeInputDiv{
+            @include flexContainerRow();
+            width: 60%;
             height: 28px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             .volumeInput {
                 -webkit-appearance: none;
                 width: 100%;
                 height: 5px;
                 border-radius: 8px;  
-                background: #d3d3d3;
+                background: $scrollColor;
                 outline: none;
                 opacity: 0.7;
                 -webkit-transition: .2s;
@@ -256,12 +256,11 @@
             }
         }   
         .volume {
-            padding-left: 12px;
-            font-size: $mainFontSize;
+            @include flexContainerRow();
+            width: 20%;
             height: 32px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-family: $mainFont;
+            font-size: 20px;
         }
     }
 }

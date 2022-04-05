@@ -13,7 +13,7 @@ const ProjectsList = () => {
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend nisi id lorem pellentesque elementum.",
       imageURL: "/music-player.png",
-      link: "audioplayer",
+      link: "portfolio/audioplayer",
     },
     {
       id: 2,

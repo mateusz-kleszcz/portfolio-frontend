@@ -13,12 +13,13 @@ interface AudioPlayerProps {
 }
 
 export const getStaticProps = async () => {
-  // const res = await fetch(`${process.env.API_ADDRESS}/api/player/albums`);
-  // const json = await res.json();
+  const res = await fetch(`${process.env.API_ADDRESS}/api/player/albums`);
+  console.log(res);
+  const json = await res.json();
 
   return {
     props: {
-      albums: [],
+      albums: json.albums,
     },
   };
 };
@@ -26,17 +27,19 @@ export const getStaticProps = async () => {
 const audioplayer = ({ albums }: AudioPlayerProps) => {
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   const { _id, albumName } = albums[0]; // load songs from first album in list
-  //   dispatch(changeAlbum(_id, albumName));
-  // }, []);
+  useEffect(() => {
+    if (albums.length > 0) {
+      const { _id, albumName } = albums[0]; // load songs from first album in list
+      dispatch(changeAlbum(_id, albumName));
+    }
+  }, []);
 
   return (
     <div className={styles.audioPlayer}>
-      {/* <AlbumsList albums={albums} />
+      <AlbumsList albums={albums} />
       <SongsList />
       <SongInfo />
-      <AudioElement /> */}
+      <AudioElement />
     </div>
   );
 };
