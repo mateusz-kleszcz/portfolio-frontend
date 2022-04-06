@@ -4,6 +4,12 @@ import { useState, useEffect } from "react";
 import { Workout } from "types/WorkoutTimer";
 import { useRef } from "react";
 import styles from "@styles/WorkoutTimer.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPauseCircle,
+  faPlayCircle,
+  faRedo,
+} from "@fortawesome/free-solid-svg-icons";
 
 const playImgSrc = "/play-black.png";
 const pauseImgSrc = "/pause-black.png";
@@ -136,14 +142,14 @@ const Timer = ({
       </div>
       <div className={styles.controls}>
         <div onClick={handleToggleTimer}>
-          <Image
-            src={isPaused ? playImgSrc : pauseImgSrc}
+          <FontAwesomeIcon
+            icon={isPaused ? faPlayCircle : faPauseCircle}
             width={50}
             height={50}
           />
         </div>
         <div onClick={handleRestartTimer}>
-          <Image src={redoImgSrc} width={50} height={50} />
+          <FontAwesomeIcon icon={faRedo} width={50} height={50} />
         </div>
       </div>
 

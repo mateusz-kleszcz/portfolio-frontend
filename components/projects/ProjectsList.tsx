@@ -9,21 +9,21 @@ const ProjectsList = () => {
     {
       id: 1,
       name: "Song player",
-      technologies: ["html", "css", "react.js"],
+      technologies: ["html", "sass", "react.js", "node.js"],
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend nisi id lorem pellentesque elementum.",
+        "Song player, which allows streaming music hosted by heroku server and creating custom playlists.",
       imageURL: "/music-player.png",
       link: "portfolio/audioplayer",
     },
-    {
-      id: 2,
-      name: "Screenshot Generator",
-      technologies: ["html", "css", "react.js"],
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend nisi id lorem pellentesque elementum. Integer sollicitudin quis magna commodo porta. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae",
-      imageURL: "/music-player.png",
-      link: "screenshotgenerator",
-    },
+    // {
+    //   id: 2,
+    //   name: "Screenshot Generator",
+    //   technologies: ["html", "css", "react.js"],
+    //   description:
+    //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend nisi id lorem pellentesque elementum. Integer sollicitudin quis magna commodo porta. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae",
+    //   imageURL: "/music-player.png",
+    //   link: "screenshotgenerator",
+    // },
     {
       id: 3,
       name: "Workout Timer",
@@ -31,7 +31,7 @@ const ProjectsList = () => {
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend nisi id lorem pellentesque elementum. Integer sollicitudin quis magna commodo porta. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae",
       imageURL: "/music-player.png",
-      link: "workouttimer",
+      link: "portfolio/workouttimer",
     },
     {
       id: 4,

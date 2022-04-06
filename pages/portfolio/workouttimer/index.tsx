@@ -10,11 +10,11 @@ interface WorkoutTimerProps {
 }
 
 export const getStaticProps = async () => {
-  // const res = await fetch(`${process.env.API_ADDRESS}/api/workout`)
-  // const json = await res.json()
+  const res = await fetch(`${process.env.API_ADDRESS}/api/workout`);
+  const json = await res.json();
   return {
     props: {
-      workouts: [],
+      workouts: json.workouts,
     },
   };
 };

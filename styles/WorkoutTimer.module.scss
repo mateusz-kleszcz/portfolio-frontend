@@ -3,18 +3,32 @@
 
 .workoutTimer {
   @include flexContainerRow;
+  background-color: $projectBackgroundColor;
+  height: calc(100vh - #{$mainNavHeightDesktop});
   .timerCreator {
-    padding: 20px;
     @include flexContainerColumn;
+    height: 100%;
+    color: $mainWhiteColor;
+    font-family: $mainFont;
+    h1 {
+      font-family: $headerFont;
+      color: $mainWhiteColor;
+      font-size: 36px;
+      margin: 0;
+      margin-top: 24px;
+    }
     label {
       font-size: 20px;
       padding: 6px;
     }
     input[type="text"] {
-      width: 80%;
+      width: 60%;
       border-radius: 4px;
-      padding: 12px 20px;
+      padding: 10px 16px;
       border: 1px solid gray;
+      font-family: $mainFont;
+      color: $mainBlackColor;
+      font-size: 16px;
     }
     input:focus {
       outline: none;
@@ -22,8 +36,31 @@
     div {
       @include flexContainerRow;
       input[type="range"] {
+        -webkit-appearance: none;
         width: 60%;
-        margin-right: 20px;
+        margin-right: 10px;
+        height: 5px;
+        border-radius: 8px;  
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+      }
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%; 
+        background: #181818;
+        cursor: pointer;
+      }
+      input[type="range"]::-moz-range-thumb {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #181818;
+        cursor: pointer;
       }
       input[type="number"] {
         border-radius: 4px;
@@ -33,7 +70,7 @@
       }
     }
     .addTrainingButton {
-      background-color: #4caf50;
+      background-color: #607D8B;
       border: none;
       color: white;
       padding: 15px 32px;
@@ -45,60 +82,69 @@
   }
   .workoutsList {
     @include flexContainerColumn;
-    padding: 20px;
     align-self: flex-start;
+    color: $mainWhiteColor;
+    h1 {
+      font-family: $headerFont;
+      font-size: 36px;
+    }
     .workoutsListItem {
       display: grid;
       width: 100%;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       justify-content: center;
-      .workoutName {
-        grid-column: 1 / 3;
+      font-family: $mainFont;
+      font-size: 20px;
+      div {
+        @include flexContainerRow();
+        padding: 10px 0;
       }
-      .workoutDelete {
+      .workoutPlay, .workoutDelete {
         cursor: pointer;
+        height: 40px;
+        svg {
+          height: 100%;
+        }
       }
     }
+
   }
 }
 
 .timer {
   @include flexContainerColumn;
-  width: 100%;
-  height: 100%;
+  height: calc(100vh - #{$mainNavHeightDesktop});
+  background-color: $projectBackgroundColor;
+  color: $mainWhiteColor;
   .timerHeader {
     text-align: center;
+    font-family: $headerFont;
+    font-size: 48px;
   }
   .timeLeft {
-    font-size: 144px;
+    font-size: 168px;
+    font-family: $headerFont;
   }
   .howManyLeft {
     @include flexContainerRow;
     margin-top: 5vh;
-    .timePassed {
-      @include flexContainerColumn;
-    }
-    .intervalsLeft {
-      @include flexContainerColumn;
-    }
-    .exercisesLeft {
-      @include flexContainerColumn;
-    }
-    .workoutTimeLeft {
+    font-family: $mainFont;
+    div {
       @include flexContainerColumn;
     }
   }
   .info {
-    margin-top: 5vh;
+    margin-top: 2%;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 36px;
+    font-family: $headerFont;
   }
   .controls {
     @include flexContainerRow;
-    margin-top: 5vh;
+    margin-top: 2%;
     width: 20%;
     justify-content: space-around;
-    img {
+    svg {
       cursor: pointer;
     }
   }

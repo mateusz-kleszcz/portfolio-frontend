@@ -6,7 +6,15 @@ import { pauseSong } from "@actions/playerActions/pauseSong";
 import { playSong } from "@actions/playerActions/playSong";
 import { ReactElement } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRandom, faRedo } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronCircleLeft,
+  faChevronCircleRight,
+  faPauseCircle,
+  faPlay,
+  faPlayCircle,
+  faRandom,
+  faRedo,
+} from "@fortawesome/free-solid-svg-icons";
 import DurationBar from "./DurationBar";
 import { toggleShuffle } from "@actions/playerActions/toggleShuffle";
 import { toggleRandom } from "@actions/playerActions/toggleRandom";
@@ -89,18 +97,16 @@ const ControlsSection = (): ReactElement => {
           />
         </div>
         <div className={styles.controlButton} onClick={handlePreviousSongClick}>
-          <Image src={previousImageSrc} width={32} height={32} />
+          <FontAwesomeIcon icon={faChevronCircleLeft} />
         </div>
         <div className={styles.controlButton}>
-          <Image
-            src={isPlaying ? pauseImageSrc : playImageSrc}
-            width={40}
-            height={40}
+          <FontAwesomeIcon
+            icon={isPlaying ? faPauseCircle : faPlayCircle}
             onClick={handlePlayButtonClick}
           />
         </div>
         <div className={styles.controlButton} onClick={handleNextSongClick}>
-          <Image src={nextImageSrc} width={32} height={32} />
+          <FontAwesomeIcon icon={faChevronCircleRight} />
         </div>
         <div className={styles.repeatButton}>
           <FontAwesomeIcon

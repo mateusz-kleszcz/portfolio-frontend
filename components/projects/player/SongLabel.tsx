@@ -6,6 +6,12 @@ import { playSong } from "@actions/playerActions/playSong";
 import { trackDuration } from "@actions/playerActions/trackDuration";
 import { AppState } from "store";
 import styles from "@styles/Player.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faList,
+  faPauseCircle,
+  faPlayCircle,
+} from "@fortawesome/free-solid-svg-icons";
 
 interface SongLabelProps {
   songId: number;
@@ -77,15 +83,13 @@ const SongLabel = ({ songId, name, album, duration }: SongLabelProps) => {
       <div className={styles.songAlbum}>{album}</div>
       <div className={styles.songDuration}>{durationString}</div>
       <div className={styles.playSong}>
-        <Image
-          src={isThisSongPlaying ? pauseSongImageSrc : playSongImageSrc}
-          width={25}
-          height={25}
+        <FontAwesomeIcon
+          icon={isThisSongPlaying ? faPauseCircle : faPlayCircle}
           onClick={handlePlayClick}
         />
       </div>
       <div className={styles.addToPlaylist}>
-        <Image src={addToPlaylistImageSrc} width={25} height={25} />
+        <FontAwesomeIcon icon={faList} />
       </div>
     </div>
   );

@@ -2,9 +2,9 @@
 @import 'mixins';
 
 $albumListBackgroundColor: #262626;
-$playerBackground: #323436;
 $scrollColor: #d3d3d3;
 $durationBarHeight: 10px;
+$iconSize: 32px;
 
 .audioPlayer{
     width: 100%;
@@ -62,12 +62,12 @@ $durationBarHeight: 10px;
         }
     }
     #songsList {
-        background-color: $playerBackground;
+        background-color: $projectBackgroundColor;
         grid-column: 4/13;
         overflow-y: scroll;
     }
     #songInfo {
-        background-color: $playerBackground;
+        background-color: $projectBackgroundColor;
         grid-column: 1/13;
         grid-template-columns: repeat(12, 1fr);
     }
@@ -125,15 +125,19 @@ $durationBarHeight: 10px;
         grid-column: 11/12;
         place-items: center;
         @include flexContainerRow();
-        div {
+        svg {
             cursor: pointer;
+            width: $iconSize;
+            height: $iconSize;
         }
     }
     .addToPlaylist {
         grid-column: 12/13;
         @include flexContainerRow();
-        div {
+        svg {
             cursor: pointer;
+            width: $iconSize;
+            height: $iconSize;
         }
     }
     &:hover {
@@ -180,14 +184,14 @@ $durationBarHeight: 10px;
             @include flexContainerRow();
             justify-content: space-around;
             .shuffleButton, .repeatButton{
-                width: 30px;
-                height: 30px;
+                width: $iconSize;
+                height: $iconSize;
                 cursor: pointer;
                 color: $mainWhiteColor;
             }
             .controlButton {
-                width: 30px;
-                height: 30px;
+                width: $iconSize;
+                height: $iconSize;
                 cursor: pointer;
             }
         }
