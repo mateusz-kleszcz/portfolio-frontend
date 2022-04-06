@@ -3,7 +3,6 @@ import HeroText from "./HeroText";
 import styles from "@styles/Home.module.scss";
 import HeroImage from "./HeroImage";
 import ScrollButton from "./ScrollButton";
-import AboutMe from "./AboutMe";
 
 const Container = () => {
   return (
@@ -13,7 +12,6 @@ const Container = () => {
         <HeroImage isBackground={true} />
       </div>
       <ScrollButton />
-      <AboutMe />
     </div>
   );
 };

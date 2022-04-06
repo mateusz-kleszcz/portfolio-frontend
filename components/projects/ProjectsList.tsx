@@ -68,7 +68,7 @@ const ProjectsList = () => {
       technologies: ["html", "css", "react.js"],
       description: "Website of Polish Pet shops, created in NextJS, React",
       imageURL: "blekitna-planeta.png",
-      link: "#",
+      link: "https://blekitna-planeta.vercel.app/",
     },
   ];
 

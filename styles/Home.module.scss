@@ -2,20 +2,23 @@
 @import "mixins";
 
 .container {
-  height: calc(100vh - $mainNavHeightDesktop);
-  width: 100%;
+  height: calc(100vh - #{$mainNavHeightDesktop});
+  width: 100vw;
+  max-width: 100%; 
   box-sizing: border-box;
   padding: 0 $paddingContainerSides;
+  position: relative;
   .row {
     @include flexContainerRow();
   }
   .heroText {
     @include flexContainerColumn();
     align-items: flex-start;
-    width: 38vw;
-    // background-image: url("../public/code.svg");
-    // background-size: contain;
-    // background-repeat: no-repeat;
+    width: 35vw;
+    margin-top: 8vh;
+    background-image: url("../public/code.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
     h2 {
       font-family: $mainFont;
       font-style: normal;
@@ -26,21 +29,22 @@
     }
     .name {
       @include flexContainerColumn();
-      padding-right: 80px;
+      padding-right: 5.4vw;
       box-sizing: border-box;
       h1 {
         font-family: $headerFont;
         font-style: normal;
         font-weight: 400;
-        font-size: 78px;
+        font-size: 72px;
         line-height: 120px;
         text-transform: uppercase;
         color: $mainBlackColor;
         margin: 0;
         align-self: flex-end;
         &:nth-child(1) {
-          margin-right: 110px;
-          margin-bottom: -70px;
+          margin-right: 80px;
+          margin-bottom: -80px;
+          margin-top: -16px;
         }
         &:nth-child(2) {
           color: $mainYellowColor;
@@ -52,18 +56,19 @@
       font-family: $mainFont;
       font-style: normal;
       font-weight: 500;
-      font-size: 28px;
+      font-size: 24px;
       line-height: 45px;
     }
     button {
-      height: 75px;
+      height: 70px;
       width: 64%;
+      margin-top: 2vh;
       background-color: $mainYellowColor;
       color: $mainBlackColor;
       font-family: $headerFont;
       font-style: normal;
       font-weight: 400;
-      font-size: 36px;
+      font-size: 32px;
       line-height: 45px;
       text-transform: uppercase;
       border: none;
@@ -74,18 +79,22 @@
     @include flexContainerColumn();
     justify-content: flex-end;
     width: 40vw;
+    margin-top: 14vh;
     .heroBackground {
       width: 53vw;
-      height: 80vh;
-      top: 10vh;
+      height: 81vh;
+      top: 0vh;
+      right: 5vw;
       position: absolute;
       background-image: url("../public/shapes.svg");
-      background-size: contain;
-      z-index: 100;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      z-index: -1;
     }
     img {
-      width: 70%;
-      height: 70%;
+      width: 60%;
+      height: 60%;
+      margin-left: 3vw;
     }
   }
   .scrollButton {
@@ -105,59 +114,71 @@
       margin: 0 50px;
     }
   }
-  .aboutMe {
-    @include flexContainerColumn();
-    .row {
-      @include flexContainerRow();
-      margin-top: -8vh;
-      p {
-        margin-top: 5vh;
-        width: 40%;
-        font-family: $mainFont;
-        font-size: 16px;
+}
+
+.aboutMe {
+  @include flexContainerColumn();
+  height: 100vh;
+  width: 100vw;
+  max-width: 100%; 
+  box-sizing: border-box;
+  padding: 0 $paddingContainerSides;
+  position: relative;
+  .row {
+    @include flexContainerRow();
+    margin-top: -8vh;
+    p {
+      margin-top: 5vh;
+      width: 40%;
+      font-family: $mainFont;
+      font-size: 16px;
+    }
+    .aboutMeCard {
+      width: 12vw;
+      height: 12vw;
+      padding: 16px;
+      margin-left: 2vw;
+      box-shadow: $mainShadow;
+      position: relative;
+      background: #fff;
+      .cardHighlight {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: $mainYellowColor;
+        transform: rotate(5deg);
+        width: 13vw;
+        height: 13vw;
+        z-index: -1;
       }
-      .aboutMeCard {
-        width: 12vw;
-        height: 12vw;
-        padding: 16px;
-        margin-left: 2vw;
-        box-shadow: $mainShadow;
-        position: relative;
-        background: #fff;
-        .cardHighlight {
-          position: absolute;
-          top: 0;
-          left: 0;
-          background-color: $mainYellowColor;
-          transform: rotate(5deg);
-          width: 13vw;
-          height: 13vw;
-          z-index: -1;
-        }
-        h1 {
-          font-family: $headerFont;
-          margin: 0;
-          font-size: 28px;
-        }
-        p {
-          width: 100%;
-          font-family: $mainFont;
-          margin: 0;
-          font-size: 16px;
-        }
+      h1 {
+        font-family: $headerFont;
+        margin: 0;
+        font-size: 28px;
+      }
+      p {
+        width: 100%;
+        font-family: $mainFont;
+        margin: 0;
+        font-size: 16px;
       }
     }
   }
-  .mySkills {
-    @include flexContainerRow();
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    .skill {
-      @include flexContainerColumn();
-      svg {
-        width: 80px;
-        height: 80px;
-      }
+}
+.mySkills {
+  @include flexContainerRow();
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  .skill {
+    @include flexContainerColumn();
+    // text-shadow: rgba(0, 0, 0, 0.6) 0 0 8px;
+    svg, img {
+      width: 80px;
+      height: 80px;
+    }
+    p {
+      font-family: $mainFont;
+      font-size: 18px;
     }
   }
 }

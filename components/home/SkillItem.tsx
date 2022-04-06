@@ -1,12 +1,25 @@
 import React from "react";
 import styles from "@styles/Home.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHtml5 } from "@fortawesome/free-brands-svg-icons";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
-const SkillItem = () => {
+interface Skill {
+  name: string;
+  color: string;
+  icon: IconProp;
+  imgURL?: string;
+  isFontAwesome: boolean;
+}
+
+const SkillItem = ({ name, color, icon, imgURL, isFontAwesome }: Skill) => {
   return (
     <div className={styles.skill}>
-      <FontAwesomeIcon icon={faHtml5} />
+      {isFontAwesome ? (
+        <FontAwesomeIcon icon={icon} color={color} />
+      ) : (
+        <img src={imgURL} />
+      )}
+      <p>{name}</p>
     </div>
   );
 };
