@@ -1,6 +1,5 @@
 import {
   faFacebook,
-  faGit,
   faGithub,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
@@ -10,11 +9,25 @@ import {
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 const Footer = () => {
+  const router = useRouter();
+
+  const [isFooterVisible, setIsFooterVisible] = useState(true);
+
+  useEffect(() => {
+    const reg = new RegExp("/portfolio/[a-zA-Z0-9]");
+    if (reg.test(router.pathname)) setIsFooterVisible(false);
+    else setIsFooterVisible(true);
+  }, [router.pathname]);
+
   return (
-    <footer className="main-footer">
+    <footer
+      className="main-footer"
+      style={{ display: isFooterVisible ? "flex" : "none" }}
+    >
       <div className="logo">
         <h1>mateusz</h1>
         <h1>kleszcz</h1>

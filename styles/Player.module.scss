@@ -8,7 +8,7 @@ $iconSize: 32px;
 
 .audioPlayer{
     width: 100%;
-    height: calc(100vh - #{$mainNavHeightDesktop} - #{$footerHeightDesktop});
+    height: calc(100vh - #{$mainNavHeightDesktop});
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 85% 15%;

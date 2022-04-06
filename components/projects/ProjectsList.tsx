@@ -27,16 +27,16 @@ const ProjectsList = () => {
     {
       id: 3,
       name: "Workout Timer",
-      technologies: ["html", "css", "react.js"],
+      technologies: ["html", "sass", "react.js", "node.js"],
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend nisi id lorem pellentesque elementum. Integer sollicitudin quis magna commodo porta. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae",
-      imageURL: "/music-player.png",
+        "Tool to creating custom workout timers, and saving them into database",
+      imageURL: "/workout-timer.png",
       link: "portfolio/workouttimer",
     },
     {
       id: 4,
       name: "Chess",
-      technologies: ["html", "css", "react.js"],
+      technologies: ["html", "css", "react.js", "node.js"],
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend nisi id lorem pellentesque elementum. Integer sollicitudin quis magna commodo porta. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae",
       imageURL: "/music-player.png",
