@@ -12,7 +12,7 @@ const ProjectsList = () => {
       technologies: ["html", "sass", "react.js", "node.js"],
       description:
         "Song player, which allows streaming music hosted by heroku server and creating custom playlists.",
-      imageURL: "/music-player.png",
+      imageURL: "music-player.png",
       link: "portfolio/audioplayer",
     },
     // {
@@ -30,7 +30,7 @@ const ProjectsList = () => {
       technologies: ["html", "sass", "react.js", "node.js"],
       description:
         "Tool to creating custom workout timers, and saving them into database",
-      imageURL: "/workout-timer.png",
+      imageURL: "workout-timer.png",
       link: "portfolio/workouttimer",
     },
     {
@@ -39,7 +39,7 @@ const ProjectsList = () => {
       technologies: ["html", "css", "react.js", "node.js"],
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend nisi id lorem pellentesque elementum. Integer sollicitudin quis magna commodo porta. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae",
-      imageURL: "/music-player.png",
+      imageURL: "music-player.png",
       link: "chess",
     },
   ];
@@ -50,7 +50,7 @@ const ProjectsList = () => {
       name: "Seed Poland",
       technologies: ["html", "css", "react.js"],
       description: "Website of Cracovian startup, created via WordPress",
-      imageURL: "/seed-poland.png",
+      imageURL: "seed-poland.png",
       link: "https://seedpoland.com/",
     },
     {
@@ -59,7 +59,7 @@ const ProjectsList = () => {
       technologies: ["html", "css", "react.js"],
       description:
         "Website of Polish company for car renting, created in NextJS, React, NodeJS, MongoDB",
-      imageURL: "/slava-rent.png",
+      imageURL: "slava-rent.png",
       link: "http://slawarent.pl/",
     },
     {
@@ -67,7 +67,7 @@ const ProjectsList = () => {
       name: "Błękitna planeta",
       technologies: ["html", "css", "react.js"],
       description: "Website of Polish Pet shops, created in NextJS, React",
-      imageURL: "/blekitna-planeta.png",
+      imageURL: "blekitna-planeta.png",
       link: "#",
     },
   ];
