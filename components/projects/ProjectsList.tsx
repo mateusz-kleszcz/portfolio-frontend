@@ -40,7 +40,7 @@ const ProjectsList = () => {
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend nisi id lorem pellentesque elementum. Integer sollicitudin quis magna commodo porta. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae",
       imageURL: "music-player.png",
-      link: "chess",
+      link: "portfolio/chess",
     },
   ];
 

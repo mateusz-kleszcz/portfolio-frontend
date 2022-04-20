@@ -7,6 +7,7 @@ export const pieces: PieceType[] = [
     position: [0, 0],
     value: 5,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Knight,
@@ -14,6 +15,7 @@ export const pieces: PieceType[] = [
     position: [0, 1],
     value: 3,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Bishop,
@@ -21,6 +23,7 @@ export const pieces: PieceType[] = [
     position: [0, 2],
     value: 3,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.King,
@@ -28,6 +31,7 @@ export const pieces: PieceType[] = [
     position: [0, 4],
     value: 4,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Queen,
@@ -35,6 +39,7 @@ export const pieces: PieceType[] = [
     position: [0, 3],
     value: 9,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Bishop,
@@ -42,6 +47,7 @@ export const pieces: PieceType[] = [
     position: [0, 5],
     value: 3,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Knight,
@@ -49,6 +55,7 @@ export const pieces: PieceType[] = [
     position: [0, 6],
     value: 3,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Rook,
@@ -56,6 +63,7 @@ export const pieces: PieceType[] = [
     position: [0, 7],
     value: 3,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Pawn,
@@ -63,6 +71,7 @@ export const pieces: PieceType[] = [
     position: [1, 0],
     value: 1,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Pawn,
@@ -70,6 +79,7 @@ export const pieces: PieceType[] = [
     position: [1, 1],
     value: 1,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Pawn,
@@ -77,6 +87,7 @@ export const pieces: PieceType[] = [
     position: [1, 2],
     value: 1,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Pawn,
@@ -84,6 +95,7 @@ export const pieces: PieceType[] = [
     position: [1, 3],
     value: 1,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Pawn,
@@ -91,6 +103,7 @@ export const pieces: PieceType[] = [
     position: [1, 4],
     value: 1,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Pawn,
@@ -98,6 +111,7 @@ export const pieces: PieceType[] = [
     position: [1, 5],
     value: 1,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Pawn,
@@ -105,6 +119,7 @@ export const pieces: PieceType[] = [
     position: [1, 6],
     value: 1,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Pawn,
@@ -112,6 +127,7 @@ export const pieces: PieceType[] = [
     position: [1, 7],
     value: 1,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Rook,
@@ -119,6 +135,7 @@ export const pieces: PieceType[] = [
     position: [7, 0],
     value: 5,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Knight,
@@ -126,6 +143,7 @@ export const pieces: PieceType[] = [
     position: [7, 1],
     value: 3,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Bishop,
@@ -133,6 +151,7 @@ export const pieces: PieceType[] = [
     position: [7, 2],
     value: 3,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.King,
@@ -140,6 +159,7 @@ export const pieces: PieceType[] = [
     position: [7, 4],
     value: 4,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Queen,
@@ -147,6 +167,7 @@ export const pieces: PieceType[] = [
     position: [7, 3],
     value: 9,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Bishop,
@@ -154,6 +175,7 @@ export const pieces: PieceType[] = [
     position: [7, 5],
     value: 3,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Knight,
@@ -161,6 +183,7 @@ export const pieces: PieceType[] = [
     position: [7, 6],
     value: 3,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Rook,
@@ -168,6 +191,7 @@ export const pieces: PieceType[] = [
     position: [7, 7],
     value: 3,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Pawn,
@@ -175,6 +199,7 @@ export const pieces: PieceType[] = [
     position: [6, 0],
     value: 1,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Pawn,
@@ -182,6 +207,7 @@ export const pieces: PieceType[] = [
     position: [6, 1],
     value: 1,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Pawn,
@@ -189,6 +215,7 @@ export const pieces: PieceType[] = [
     position: [6, 2],
     value: 1,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Pawn,
@@ -196,6 +223,7 @@ export const pieces: PieceType[] = [
     position: [6, 3],
     value: 1,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Pawn,
@@ -203,6 +231,7 @@ export const pieces: PieceType[] = [
     position: [6, 4],
     value: 1,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Pawn,
@@ -210,6 +239,7 @@ export const pieces: PieceType[] = [
     position: [6, 5],
     value: 1,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Pawn,
@@ -217,6 +247,7 @@ export const pieces: PieceType[] = [
     position: [6, 6],
     value: 1,
     isFirstMove: true,
+    isAttackingKing: false,
   },
   {
     name: PieceName.Pawn,
@@ -224,5 +255,6 @@ export const pieces: PieceType[] = [
     position: [6, 7],
     value: 1,
     isFirstMove: true,
+    isAttackingKing: false,
   },
 ];

@@ -22,6 +22,7 @@ export interface PieceType {
   isWhite: boolean;
   isFirstMove: boolean;
   value: number;
+  isAttackingKing: boolean;
 }
 
 export interface ChessGame {

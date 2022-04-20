@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { pieces } from "./InitialPieces";
 import styles from "@styles/Chess.module.scss";
-import { FieldType, PieceName, PieceType } from "types/Chess";
+import { FieldType } from "types/Chess";
 import Field from "./Field";
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "store";
 import { changeBoardState } from "@actions/chessActions/changeBoardState";
-import { markAllowedFields } from "./markAllowedFields";
 import { DragDropContext, DropResult, DragStart } from "react-beautiful-dnd";
 import { selectPiece } from "@actions/chessActions/selectPiece";
 import { movePiece } from "@actions/chessActions/movePiece";
+import { checkPieceMoves } from "./ChessEngine";
 
 const getPieces = (i: number, j: number) => {
   const piece = pieces.find(
@@ -54,7 +54,7 @@ const Board = () => {
 
   useEffect(() => {
     if (selectedPiece !== null) {
-      const newBoard = markAllowedFields(selectedPiece, board);
+      const newBoard = checkPieceMoves(selectedPiece, board, isWhiteMove);
       dispatch(changeBoardState(newBoard));
     }
   }, [selectedPiece]);
