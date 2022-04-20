@@ -1,5 +1,4 @@
 import { Project } from "types/Project";
-import Link from "next/link";
 import styles from "@styles/Projects.module.scss";
 import getConfig from "next/config";
 
@@ -21,12 +20,12 @@ const CommercialProjectsItem = ({
         </h2>
         <p className={styles.projectDescription}>{description}</p>
       </div>
-      <Link href={link}>
+      <a target="_blank" href={link}>
         <div className={styles.projectImage}>
           <div className={styles.projectHighlight}></div>
           <img src={imageURL} alt={name} />
         </div>
-      </Link>
+      </a>
     </div>
   );
 };

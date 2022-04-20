@@ -142,6 +142,8 @@ export type WorkoutTimerActionsTypes =
 export const CHANGE_BOARD_STATE = "CHANGE_BOARD_STATE";
 export const SELECT_PIECE = "SELECT_PIECE";
 export const MOVE_PIECE = "MOVE_PIECE";
+export const START_GAME = "START_GAME";
+export const END_GAME = "END_GAME";
 
 export interface ChangeBoardState {
   type: typeof CHANGE_BOARD_STATE;
@@ -159,7 +161,20 @@ export interface MovePiece {
   positionAfterMove: [number, number];
 }
 
-export type ChessActionsTypes = ChangeBoardState | SelectPiece | MovePiece;
+export interface StartGame {
+  type: typeof START_GAME;
+}
+
+export interface EndGame {
+  type: typeof END_GAME;
+}
+
+export type ChessActionsTypes =
+  | ChangeBoardState
+  | SelectPiece
+  | MovePiece
+  | StartGame
+  | EndGame;
 
 export type AppActions =
   | PlayerActionsTypes

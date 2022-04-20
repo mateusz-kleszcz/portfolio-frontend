@@ -3,34 +3,62 @@
 
 $boardSize: 600px;
 
-.board {
-  @include flexContainerColumn;
-  width: $boardSize;
-  height: $boardSize;
-  .row {
-    @include flexContainerRow;
-    .fieldContainer {
-      @include flexContainerColumn;
-      position: relative;
-      width: $boardSize / 8;
-      height: $boardSize / 8;
-      .piece {
-        width: ($boardSize / 8) * 0.7;
-        height: ($boardSize / 8) * 0.7;
-        stroke: black;
-        stroke-width: 20;
+.boardContainer {
+  @include flexContainerRow;
+  width: 100vw;
+  height: calc(100vh - #{$mainNavHeightDesktop});
+  max-width: 100%;
+  background-color: $projectBackgroundColor;
+  .board {
+    @include flexContainerColumn;
+    width: $boardSize;
+    height: $boardSize;
+    .row {
+      @include flexContainerRow;
+      .fieldContainer {
+        @include flexContainerColumn;
+        position: relative;
+        width: $boardSize / 8;
+        height: $boardSize / 8;
+        .piece {
+          width: ($boardSize / 8) * 0.7;
+          height: ($boardSize / 8) * 0.7;
+          stroke: black;
+          stroke-width: 20;
+        }
+        .allowed {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          z-index: 2;
+          transform: translate(-50%, -50%);
+          width: $boardSize / 24;
+          height: $boardSize / 24;
+          border-radius: $boardSize;
+          background-color: rgba(0, 0, 0, 0.2);
+        }
       }
-      .allowed {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        z-index: 2;
-        transform: translate(-50%, -50%);
-        width: $boardSize / 24;
-        height: $boardSize / 24;
-        border-radius: $boardSize;
-        background-color: rgba(0, 0, 0, 0.2);
-      }
+    }
+  }
+  .controlsContainer {
+    width: 20vw;
+    max-width: 20vw;
+    @include flexContainerColumn;
+    .timer {
+      color: $mainWhiteColor;
+      font-family: $headerFont;
+      font-size: 64px;
+      margin-bottom: 3vh;
+    }
+    button {
+      padding: 16px 30px;
+      background: $mainYellowColor;
+      border: none;
+      outline: none;
+      color: $mainBlackColor;
+      font-size: 28px;
+      font-family: $headerFont;
+      cursor: pointer;
     }
   }
 }

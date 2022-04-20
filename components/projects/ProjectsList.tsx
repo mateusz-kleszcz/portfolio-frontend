@@ -8,10 +8,10 @@ const ProjectsList = () => {
   const list: Project[] = [
     {
       id: 1,
-      name: "Song player",
+      name: "Music player",
       technologies: ["html", "sass", "react.js", "node.js"],
       description:
-        "Song player, which allows streaming music hosted by heroku server and creating custom playlists.",
+        "Music player which allows streaming music hosted by heroku server and creating custom playlists.",
       imageURL: "music-player.png",
       link: "portfolio/audioplayer",
     },
@@ -29,30 +29,29 @@ const ProjectsList = () => {
       name: "Workout Timer",
       technologies: ["html", "sass", "react.js", "node.js"],
       description:
-        "Tool to creating custom workout timers, and saving them into database",
+        "Tool to creating custom workout timers and saving them into database",
       imageURL: "workout-timer.png",
       link: "portfolio/workouttimer",
     },
     {
       id: 4,
       name: "Chess",
-      technologies: ["html", "css", "react.js", "node.js"],
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend nisi id lorem pellentesque elementum. Integer sollicitudin quis magna commodo porta. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae",
-      imageURL: "music-player.png",
+      technologies: ["html", "sass", "TypeScript", "react.js"],
+      description: "Chess game in hot-seat version with timers",
+      imageURL: "chess.png",
       link: "portfolio/chess",
     },
   ];
 
   const commercial: Project[] = [
-    {
-      id: 1,
-      name: "Seed Poland",
-      technologies: ["html", "css", "react.js"],
-      description: "Website of Cracovian startup, created via WordPress",
-      imageURL: "seed-poland.png",
-      link: "https://seedpoland.com/",
-    },
+    // {
+    //   id: 1,
+    //   name: "Seed Poland",
+    //   technologies: ["html", "css", "react.js"],
+    //   description: "Website of Cracovian startup, created via WordPress",
+    //   imageURL: "seed-poland.png",
+    //   link: "https://seedpoland.com/",
+    // },
     {
       id: 2,
       name: "Slava Rent",
@@ -81,10 +80,10 @@ const ProjectsList = () => {
 
   return (
     <div className={styles.projectContainer}>
-      <HighlightedHeader content="my projects" />
-      <div className={styles.projectList}>{projects}</div>
       <HighlightedHeader content="my commercial projects" />
       <div className={styles.projectList}>{commercialProjects}</div>
+      <HighlightedHeader content="my projects" />
+      <div className={styles.projectList}>{projects}</div>
     </div>
   );
 };

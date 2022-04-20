@@ -3,6 +3,8 @@ import {
   CHANGE_BOARD_STATE,
   MOVE_PIECE,
   SELECT_PIECE,
+  START_GAME,
+  END_GAME,
 } from "types/actions";
 import { ChessGame, PieceName } from "types/Chess";
 
@@ -10,6 +12,7 @@ const initState: ChessGame = {
   board: [],
   selectedPiece: null,
   isWhiteMove: true,
+  isStarted: false,
   timeWhite: 180,
   timeBlack: 180,
 };
@@ -64,6 +67,10 @@ const chessReducer = (
             ? !state.isWhiteMove
             : state.isWhiteMove,
       };
+    case START_GAME:
+      return { ...state, isStarted: true };
+    case END_GAME:
+      return { ...state, isStarted: false };
     default:
       return { ...state };
   }

@@ -10,6 +10,7 @@ import { DragDropContext, DropResult, DragStart } from "react-beautiful-dnd";
 import { selectPiece } from "@actions/chessActions/selectPiece";
 import { movePiece } from "@actions/chessActions/movePiece";
 import { checkPieceMoves } from "./ChessEngine";
+import Controls from "./Controls";
 
 const getPieces = (i: number, j: number) => {
   const piece = pieces.find(
@@ -80,16 +81,22 @@ const Board = () => {
   };
 
   return (
-    <div className={styles.board}>
-      <DragDropContext onDragEnd={handleDragEnd} onDragStart={handleDragStart}>
-        {board.map((row, index) => (
-          <div className={styles.row} key={index}>
-            {row.map((field, index) => (
-              <Field {...field} key={index} />
-            ))}
-          </div>
-        ))}
-      </DragDropContext>
+    <div className={styles.boardContainer}>
+      <div className={styles.board}>
+        <DragDropContext
+          onDragEnd={handleDragEnd}
+          onDragStart={handleDragStart}
+        >
+          {board.map((row, index) => (
+            <div className={styles.row} key={index}>
+              {row.map((field, index) => (
+                <Field {...field} key={index} />
+              ))}
+            </div>
+          ))}
+        </DragDropContext>
+      </div>
+      <Controls />
     </div>
   );
 };
