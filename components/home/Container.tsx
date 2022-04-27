@@ -4,6 +4,8 @@ import styles from "@styles/Home.module.scss";
 import HeroImage from "./HeroImage";
 import ScrollButton from "./ScrollButton";
 
+const containerVariants = {};
+
 const Container = () => {
   return (
     <div className={styles.container}>

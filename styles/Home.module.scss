@@ -7,6 +7,7 @@
   max-width: 100%; 
   box-sizing: border-box;
   padding: 0 $paddingContainerSides;
+  // max-width: 1400px;
   position: relative;
   .row {
     @include flexContainerRow();
@@ -73,6 +74,10 @@
       text-transform: uppercase;
       border: none;
       cursor: pointer;
+      transition: background-color ease-in-out 0.3s;
+      &:hover {
+        background-color: $darkYellowColor;
+      }
     }
   }
   .heroImage {
@@ -118,7 +123,7 @@
 
 .aboutMe {
   @include flexContainerColumn();
-  height: 100vh;
+  height: calc(100vh - #{$footerHeightDesktop});
   width: 100vw;
   max-width: 100%; 
   box-sizing: border-box;
@@ -133,48 +138,58 @@
       font-family: $mainFont;
       font-size: 16px;
     }
-    .aboutMeCard {
-      width: 12vw;
-      height: 12vw;
-      padding: 16px;
-      margin-left: 2vw;
-      box-shadow: $mainShadow;
+    .abouteMeCardContainer {
       position: relative;
-      background: #fff;
+      margin-left: 2vw;
+      .aboutMeCard {
+        width: 12vw;
+        height: 12vw;
+        padding: 16px;
+        box-shadow: $mainShadow;
+        position: relative;
+        background: #fff;
+        h1 {
+          font-family: $headerFont;
+          margin: 0;
+          font-size: 28px;
+        }
+        p {
+          width: 100%;
+          font-family: $mainFont;
+          margin: 0;
+          font-size: 16px;
+        }
+      }
       .cardHighlight {
         position: absolute;
         top: 0;
         left: 0;
         background-color: $mainYellowColor;
-        transform: rotate(5deg);
-        width: 13vw;
-        height: 13vw;
+        width: 14vw;
+        height: 14vw;
         z-index: -1;
       }
-      h1 {
-        font-family: $headerFont;
-        margin: 0;
-        font-size: 28px;
-      }
-      p {
-        width: 100%;
-        font-family: $mainFont;
-        margin: 0;
-        font-size: 16px;
-      }
     }
+
   }
 }
+
 .mySkills {
   @include flexContainerRow();
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   .skill {
+    cursor: pointer;
     @include flexContainerColumn();
-    // text-shadow: rgba(0, 0, 0, 0.6) 0 0 8px;
     svg, img {
       width: 80px;
       height: 80px;
+      user-drag: none;
+      -webkit-user-drag: none;
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
     }
     p {
       font-family: $mainFont;

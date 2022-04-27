@@ -5,6 +5,7 @@
   @include flexContainerColumn();
   padding: 0 $paddingContainerSides;
   box-sizing: border-box;
+  height: calc(100vh - #{$mainNavHeightDesktop} - #{$footerHeightDesktop});
   .row {
     margin-top: 5vh;
     @include flexContainerRow();

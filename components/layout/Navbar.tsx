@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Navbar = (props: any) => {
+  const router = useRouter();
+
   return (
     <nav className="main-navbar">
       <div className="logo">
@@ -10,13 +13,17 @@ const Navbar = (props: any) => {
       </div>
       <div className="links">
         <Link href="/">
-          <a>Home</a>
+          <a className={router.pathname === "/" ? "active" : ""}>Home</a>
         </Link>
         <Link href="/portfolio">
-          <a>Portfolio</a>
+          <a className={router.pathname === "/portfolio" ? "active" : ""}>
+            Portfolio
+          </a>
         </Link>
         <Link href="/contact">
-          <a>Contact</a>
+          <a className={router.pathname === "/contact" ? "active" : ""}>
+            Contact
+          </a>
         </Link>
       </div>
       {/* <div className="authControls">

@@ -49,6 +49,9 @@ body {
       text-decoration: none;
       padding: 10px;
     }
+    .active {
+      background-image: linear-gradient(#fff 40%, #edd70d 40% 65%, #fff 65%);
+    }
   }
   .authControls {
     margin-left: auto;
@@ -58,6 +61,7 @@ body {
 
 .main-footer {
   @include flexContainerRow();
+  height: $footerHeightDesktop;
   background-color: $mainYellowColor;
   color: $mainBlackColor;
   padding: 50px 0;

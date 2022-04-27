@@ -7,7 +7,7 @@ import ContactForm from "./ContactForm";
 const ContactContainer = () => {
   return (
     <div className={styles.contactContainer}>
-      <HighlightedHeader content="skontaktuj się ze mną" />
+      <HighlightedHeader content="contact with me" />
       <div className={styles.row}>
         <HeroImage isBackground={false} />
         <ContactForm />

@@ -1,9 +1,30 @@
 import React from "react";
 import styles from "@styles/Home.module.scss";
+import { motion } from "framer-motion";
+
+const heroTextVariants = {
+  hidden: {
+    oppacity: 0,
+    x: "-100vw",
+  },
+  visible: {
+    oppacity: 1,
+    x: 0,
+    transition: {
+      type: "spring",
+      stiffness: 30,
+    },
+  },
+};
 
 const HeroText = () => {
   return (
-    <div className={styles.heroText}>
+    <motion.div
+      className={styles.heroText}
+      variants={heroTextVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <h2>Hi, my name is</h2>
       <div className={styles.name}>
         <h1>mateusz</h1>
@@ -14,7 +35,7 @@ const HeroText = () => {
         earum ducimus!
       </p>
       <button>Contact me</button>
-    </div>
+    </motion.div>
   );
 };
 
